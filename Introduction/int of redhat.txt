@@ -263,3 +263,4 @@ sudo systemct enable --now cockpit.socket # it open port 9090. configure everyth
 
 
 
+
