@@ -1,0 +1,265 @@
+INTRO
+kernel - central foundation for all linux distribution
+
+fedora linux - for play around, testing
+centOS Stream - big than fedora
+redhat - robust
+
+redhat follow file hierarchy standard (FSH)
+redhat releases new major version every 3 years.
+
+Leap (jumping next version become smooth and safe)
+redhat support come in 3 phases:
+1. full support (first 5 years) get new features, bug fixes, security update
+2. maintenance support (next 5 years) mainly about security patches
+3. extended upgrade (add on) give security patches after the full and maintenance support
+
+
+COMMAND
+command running in shell
+default shell is bash
+purpose of shell - interpret your commands
+
+command>option>argument
+option either single dash (-) or double dash (--), and influence how commands runs
+arguments is the things that i want my command work on
+
+
+podman - daemonless, open-source container engine heavily developed by Red Hat to manage, build, and run OCI-compliant containers, pods, and images, often used as a secure, rootless alternative to Docker.
+man (any command) - man pages works as a manual
+man man - the man has its own option
+n (click to find for the next keyword in redhat)
+q (for exit) 
+du
+-sh
+pwd (looking your current directory)
+ls (list all file/directory)
+
+
+redhat have its own ai name RHEL Lightspeed
+c chat 'you question'
+
+
+EXPLAIN DIR IN ROOT
+/ in root, we have:
+afs
+bin
+boot # (linux kernel needed to start the system live. dont touch unless doing troubleshooting boot problem)
+dev
+etc # (Extended Text Configuration. store all configuration files for the system. if changing how system works, the chances that im editting something below /etc) - do backup configuration before change them!!
+home (personal)
+lib
+lib64
+media
+mnt (temporarily mounting storage like usb drive or network shares)
+opt
+proc
+root (/root home directory for root user and work as super user. normal users cant access)
+run (linux keeps all sorts of information what is happening right now on your system. start refresh every boot and wiped out when you start the system)
+sbin
+srv
+sys
+tmp # (temporary. just save here for temporary but not for the important file because all users in linux system has access in /tmp)
+usr # (user program. most of the software are install are ends up here /usr/bin (bin - binaries represent executable programs)). libraries below /user/lib64. /usr/shared to find shared resources like documentation.
+var # (variable stuff that change a lot such as logs, mail, print job)
+
+
+MANAGING FILES (basic file management)
+ls -l # list long all file/directory with detail (permission, ownership, size, date and time stamp)
+ls -lh # list long all file/directory with detail to human readable format (permission, ownership, size, date and time stamp)
+ls -lha # list long all file/directory with detail to human readable format also with hidden file that start with . (permission, ownership, size, date and time stamp)
+mkdir (file name) # create file (you cant create  2 file with the same name)
+mkdir -pv (path) # create entire tree/path or file that doesnt exist
+cd /home # change directory
+touch (file name) #create a new file (empty file)
+cp (file name or path) # copy file
+mv (file name) (new file name) # rename file
+mv (file name) (new path) # move the file to different directory
+rm (file name) # remove a file
+rm -r (file name) # remove directory and all the content
+rm -ri (file name) # give an option before remove directory and all the content 
+rmdir (dir name) # remove directory
+
+
+EDITTING FILES WITH VIM
+modes in vim:
+normal mode - for navigate, running commands
+insert mode - for typing text
+command mode - saving, quitting, searching
+
+vim (filename.txt) # open file
+i # to start write in vim (the word insert appeared)
+esc # back to normal mode
+:wq # to save and quit
+:q! # to quit without save
+
+command in normal mode:
+yy # copy a line
+p # paste
+10p # to paste 10 times
+u # to undo
+ctrl+r # to redo
+
+
+ORGANIZING LOCAL USERS AND GROUPS
+/etc/passwd
+/etc/group
+/etc/shadow
+
+cat /etc/passwd # to see all user local acc
+
+to create user acc
+sudo -i # sudo for super user do run commands as root
+useradd (username) # create new user
+passwd (username) # to set a password
+usermod -s /bin/zsh alison # tak faham??
+passwd -l (username) # lock the account
+passwd -u (username) # unlock the account
+
+to create group
+groupadd (groupname) # create new group
+groupmod -n (new groupname) (groupname) # rename a group
+cat /etc/group # look content in the group (to find group that exist)
+groupdel (groupname) # delete a group
+
+Active Directory or Redhat Identity Directory Management (IDM)
+userdel -r (username) # delete its all dir acc
+userdel (username) # delete its acc
+BEST PRACTICE IS TO NOT DELETE, INSTEAD JUST LOCK THE ACCOUNT
+
+- every user have unique ID (UID)
+- if delete the user, that user ID can be reused later
+- if the new user get the same user ID, they could owning files that belong to the previous user. Accidently exposed the sensitive data
+
+id (username) # to see the its UID
+passwd -l (username) # lock the account
+find / -uid 1001 2>/dev/null # find the directory or all find under 1001 UID. DELETE ALL OF THIS BEFORE YOU FULLY REMOVING THE USER ACCOUNT
+
+add a local user to a group
+usermod -aG wheel (username) # add the local user to a wheel group. wheel is the default administrator group on RHEL systems. anyone in this group can use the sudo command to run administrative task. Only add people that need to run administrator task in this group.
+
+exit # to exit the root (back to a local user)
+su - # subtitute user or switch user to the root user
+sudo -i # run administrative task from local acc. all this audited.
+
+
+FILE PERMISSION
+r (4) - read
+w (2) - write
+x (1) - execute
+
+owning user
+owning group
+others - anyone except owning user and owning group
+
+tmux - start new terminal/unamed session
+ls -ld (path) # do long listing for that path directory
+chmod (001) (directory@file) # change mode for other to have access to execute
+chgroup # change only for owning group
+chown -R (owning user) (dir path) # change everything in owning user 
+
+
+MANAGING SOFTWARE AND UPDATES
+server>register to sattelite>get content to updates/Lightspeed
+subsciption-manager identity # to check either you register to redhat or not
+subcription-manager register # subcript redhat
+
+RedHat Content Delivery Network
+
+dnf search nodejs # search packages named nodejs
+dns install nodejs # install nodejs
+dns install -y nodejs # install nodejs and just installed (could be dangerouns)
+
+ERRATA
+(RHBA) Red Hat Bug Advisory - bug fixes
+(RHEA) Red Hat Enhancement Advisory - improvemengt existing packages
+(RHSA) Red Hat Security Advisory - self explanatory, security updates
+
+- RHSA tied to (CVE) Common Vulnerabilities and Exposure
+- CVE identified by IDs
+- if packages affected by vulnerabilities, ill get CVE (28676) and CVSS score (9.8)
+
+to check the packages that effected by errata:
+dnf updateinfo list # list all errata
+dnf updateinfo info RHSA -2025:10854 # check specific errata
+dnf update # install to update entire system
+dns update --security # update security
+dns update --sec-severity=Importance --sec-severity=Critical # limit the updates to the highest priority security fixes
+
+after update, please check either redhat need to boot or not
+dns needs-restarting -r # if yes, type reboot. this will complete the packages update
+
+
+MANAGING NETWORKING (enp7s0 is the example of profile name)
+nmcli con show @ nmcli c s # to view connection
+nmcli con show (that profile name) # to view specific profile
+ip add show @ ip a s # to view current setting
+ip add show @ ip a s (profile name) # to view specific current setting 
+nmcli connection add con-name datecenter type ethernet ifname enp7s0 ipv4.method manual ipv4.address '192.168.1.114/24' ipv4.gateway 192.168.1.1 ipv4.dns '192.168.1.1,1.1.1.1' # to add new profile. con-name = connection name. ipv4.method manual = manually configure ip. 
+ip route show @ ip r s # to view the gateway
+cat /etc/resolv.conf # view dns resolver. etc all about the configuration file
+nmcli con del (datacenter) # to delete the profile
+
+nmtui (same to cli but more user friendly to set a profile)
+nmtui # use user friendly to set a profile
+
+enp7s0 = enthernet located at port 7 slot 0
+
+ctrl + L = clear screen
+
+ 
+MANAGING SYSTEM STARTUP SERVICES WITH SYSTEMD
+systemd manages and many more: 
+service - running application, deamon
+socket - activating things on demand
+timer -  for scheduling tasks
+target - for grouping units
+path - handle file n directories
+
+dnf install -y httpd # install services
+encho 'hello world' | tee /var/www/html/index.html # default document
+systemctl start httpd # start the services. systemctl start httpd.service (can use this also) 
+systemctl enable httpd # enable services
+systemctl --now httpd # start and enable the unit httpd right now 
+systemctl status httpd # to view the status of httpd
+systemctl restart (httpd) # restart the service without full boot
+^restart^stop # change the word restart to stop. service will stop running httpd
+^stop^disable # change the work restart to stop. and the service httpd will not run automatically after booting.
+
+allow firewall traffic
+firewall-cmd --add-service hhtp # add firewall rule (not permanent)
+!! --permanent # run the previous command and make it permanent
+firewall-cmd --list-all # list all the firewall rule
+
+
+DEPLOYING AN APPLICATION RUNTIME TO HOST A SIMPLE APPLICATION
+example nodejs (myapp)
+dnf install -y nodejs # install
+sudo systemctl daemon-reload # reload after changes 
+firewall-cmd --add-port 8080/tcp # add port 8080
+
+
+USING IMAGE MODE WITH BOOTC
+bootc is a brand new way to run rhel where instead of building serve piece by piece, we use a single, complete image (blueprint)
+
+bootc status # to view current bootc and version
+rpm -q httpd # to view the version of apache web server
+bootc switch quay.io/(rdacosta)/bootc_httpd:2 # install new image for version 2 with a line command
+
+
+IMAGE IMAGE BUILDER
+-insights image builder (web browser)
+-RHEL image builder (web console)
+
+
+INSIGHT VULNERABILITY MANAGEMENT
+use cockpit
+sudo systemct enable --now cockpit.socket # it open port 9090. configure everything instead from terminal to web console
+
+
+
+
+
+
+
+
