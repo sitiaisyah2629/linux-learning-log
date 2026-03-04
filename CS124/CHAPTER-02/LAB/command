@@ -1,1 +1,16 @@
-efwfewhfew
+passwd # to change password
+whoami # to see the current user
+date # view date/time
+date +%R # view time in 24 hour
+date +%x # view date
+cat argument1 argument2 # display 2 file (not by page)
+less argument1 # display file (per page)
+head (file/path) # display 10 line from upward
+tail (file/path) # display 10 line from downward
+tail -n 3 (file/path) # display 3 line from downward
+wc -l -c argument1 ; argument 2 # wc word count. -l line, -c character 
+TZ="Asia/Kuala_Lumpur" date # command to view kl date right now
+timedatectl list -timezones # list all time zones
+timedatectl list -timezones | Kuala # list all time zones start with kuala
+sudo timedatectl set-timezone Asia/Kuala_Lumpur
+file (file name) # to check file type
