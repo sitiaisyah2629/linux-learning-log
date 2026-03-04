@@ -14,3 +14,6 @@ rm -rf (file or path) # forces removal without prompting confirmation
 
 
 .ogg use for audio in redhat
+.jpg
+.mp3
+.avi
