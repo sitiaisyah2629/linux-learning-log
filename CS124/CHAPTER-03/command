@@ -1,0 +1,15 @@
+
+cd - # back to previous working directory  before current working directory
+cd ~ # back to home directory
+cd ../.. # changes the working directory up two levels from the current location
+ls -al # list in the long format include hidden files
+ls -R # list in the recursive way
+cp -r ../Thesis/ . # copy everything from previous working directory, then enter in Thesis directory an copy to current directory
+rm (file name) # for remove file
+rm -r (path or file name) # remove everything in the target
+rmdir (dir name) # only remove target directory if its empty
+rm -ri (file or path) # ask confirmation before deleting
+rm -rf (file or path) # forces removal without prompting confirmation
+
+
+.ogg use for audio in redhat
