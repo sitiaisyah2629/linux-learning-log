@@ -14,7 +14,15 @@ rm -rf (file or path) # forces removal without prompting confirmation
 ls -i # option to know the inode (index node)
 ln (source) (destination) # create a hard link
 ln -s (source) (destination) # create a soft link
-
+ls -l *a # list to a long line start with anything but end with a
+ls -l *a* # list to a long line start with anything, consist a in the middle, and end with anything
+ls -l ??? # list to a long line that consist 3 characters
+ls -l [abc] # Any one character in the enclosed class (between the square brackets)
+ls -l [!abc] @ ls -l [^abc] # Any one character not in the enclosed class
+ls -l [[:alpha:]]*	# Any alphabetic character at the end
+ls -l *[[:lower:]]* # any lowercase character in the middle
+ls -l *[[:upper:]] # any uppercase character at front
+ls -l *[[:digit:]]* # any single digit from 0-9 in the middle
 
 
 
