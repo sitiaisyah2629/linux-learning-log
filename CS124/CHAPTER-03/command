@@ -11,9 +11,30 @@ rm -r (path or file name) # remove everything in the target
 rmdir (dir name) # only remove target directory if its empty
 rm -ri (file or path) # ask confirmation before deleting
 rm -rf (file or path) # forces removal without prompting confirmation
+ls -i # option to know the inode (index node)
+ln (source) (destination) # create a hard link
+ln -s (source) (destination) # create a soft link
 
 
+
+
+
+------------------------------------------------------------------------------------
+hard link vs soft link
+
+hard link: A hard link is an additional name for an existing file. When you create a hard link, you aren't creating a shortcut; 
+you are creating a second "door" to the exact same room.
+- both original file and hard link share same inode number (check by use ls -i)
+- if delete the original file, the hard link still works and data still in the disk
+- can't link to directories abd can't span acros different system (partitions)
+
+soft link: A symlink is more like a Windows shortcut. It is a special file that contains a text path to another file or directory
+- has its own unique inode number
+- if delete the original file, symlink becomes broken or 'dangling' 'cause path no longer exist
+- can link between directories and can point on different file systems or even acroos a network
+------------------------------------------------------------------------------------
 .ogg use for audio in redhat
 .jpg
 .mp3
 .avi
+-----------------------------------------------------------------------------------
