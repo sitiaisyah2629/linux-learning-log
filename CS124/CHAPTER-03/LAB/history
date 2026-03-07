@@ -1,1 +1,160 @@
-Vvdwvwv
+HISTORY
+
+    4  ls -l
+    5  mkdir ~/Documents/project_plans/season{1,2}_project_plan.odf
+    6  mkdir -r ~/Documents/project_plans/season{1,2}_project_plan.odf
+    7  mkdir Documents
+    8  mkdir ~/Documents/project_plans
+    9  touch ~/Documents/project_plans/season{1,2}_project_plan.odf
+   10  ls -l ~/Documents/project_plans
+   11  ls -lR
+   12  touch /home/student/tv_season{1,2}_episode{1..6}.ogg
+   13  ls -lR
+   14  ls tv*
+   15  ls -l tv*
+   16  touch mystery_chapter{1..8}.odf
+   17  ls -l m*
+   18  mkdir -p Videos/season{1,2}
+   19  ls -lR
+   20  cd Documents
+   21  ls -l
+   22  cd project_plans
+   23  ls -l
+   24  pwd
+   25  ls -l
+   26  ls ~/Videos
+   27  ls ~/Videos/season1
+   28  mv tv_season1* ~Videos/season1
+   29  mv tv_season1* ~/Videos/season1
+   30  ls ~/Videos
+   31  ls season1
+   32  ls -l season1
+   33  ls -lR season1
+   34  ls -lh season1
+   35  ..
+   36  cd ..
+   37  pwd
+   38  mv tv_season1* ~/Videos/season1
+   39  mv tv_season2* ~/Videos/season2
+   40  ls -lRh
+   41  ls -l
+   42  ls -lR
+   43  mkdir -p ~/Documents/my_bestseller/chapters
+   44  mkdir editor changes vacation ~/Documents/my_bestseller/chapters
+   45  mkdir editor changes vacation ~/Documents/my_bestseller
+   46  ls -lR
+   47  ls -l
+   48  rmdir changes editor vacation
+   49  ls -l
+   50  cd Documents
+   51  ls -l
+   52  cd my*
+   53  ls -l
+   54  cd c*
+   55  ls -l
+   56  mkdir Documents/my_bestseller/{editor,changes,vacation}
+   57  mkdir ~/Documents/my_bestseller/{editor,changes,vacation}
+   58  ls -l ~/Documents/my_bestseller
+   59  cd chapters
+   60  ls -l
+   61  mv ~/Documents/my_b*/chapters
+   62  mv mys* ~/Documents/my_b*/chapters
+   63  mv mys* .
+   64  mv ~mys* .
+   65  ls -lR
+   66  ls -R
+   67  pwd
+   68  cd ../..
+   69  cd ..
+   70  pwd
+   71  ls -l
+   72  cd /Documents
+   73  ls -l
+   74  cd Documents
+   75  ls -l
+   76  cd my_best*
+   77  ls -l
+   78  cd chpaters
+   79  cd chapters
+   80  ls -l
+   81  mv ~my* .
+   82  mv ~ my* .
+   83  mv /home/student/my* .
+   84  ls -l
+   85  mv mystery_chapters{1,2} ../editor
+   86  mv mystery_chapters{1,2} ~/Documents/my_bestseller/editor
+   87  ls -l
+   88  cd ..
+   89  ls -l
+   90  cd editor
+   91  ls -l ../chapters
+   92  cd ../chapters
+   93  ls -l
+   94  mv mystery_chapter{1,2} ../editor
+   95  mv mystery_chapter{1,2}.odf ../editor
+   96  ls -l ../editor
+   97  mv mystery_chapter{7,8}.odf ../vacation
+   98  cd ~Videos/season2
+   99  cd ~/Videos/season2
+  100  ls -l
+  101  cp *episode1.ogg ~/Document/my_bestseller/vacation
+  102  cp *episode1.ogg ~/Documents/my_bestseller/vacation
+  103  cd ~/Documents/my_bestseller/vacation
+  104  ls -l
+  105  cd -
+  106  ls -l
+  107  cp *episode2.ogg ~/Documnets/my_bestseller/vacation
+  108  cp *episode2.ogg ~/Documents/my_bestseller/vacation
+  109  cd -
+  110  ls -l
+  111  pwd
+  112  cd ..
+  113  pwd
+  114  ls -l
+  115  cd chapters
+  116  ls -l
+  117  cd ..
+  118  cp chapters/mystery_chapter[5,6].odf changes
+  119  ls -l
+  120  cd changes
+  121  ls -l
+  122  cp mystery_chapter5.odf \mystery_chapter5_$(date +%F).odf
+  123  ls -l
+  124  cp mystery_chapter5.odf \mystery_chapter5_$(date +%s).odf
+  125  ls -l
+  126  rm mystery*
+  127  ls -l
+  128  cd ..
+  129  ls
+  130  rm changes
+  131  rmdir changes
+  132  ls 
+  133  ls -l vacation
+  134  rm -r vacation
+  135  ls -l
+  136  cd ~
+  137  pwd
+  138  ls -l
+  139  cd Documents
+  140  ls -l
+  141  ;s project_plans
+  142  ls project_plans
+  143  ls -l project_plans
+  144  pwd
+  145  mkdir backups
+  146  ls -l
+  147  ln ~/Documents/project_plan/season*.odf ~/Documents/backups/season2_project_plan.odf.back
+  148  ln ~/Documents/project_plan/season*.odf \ ~/Documents/backups/season2_project_plan.odf.back
+  149  ln ~/Documents/project_plans/season2_project_plan.odf \ ~/Documents/backups/season2_project_plan.odf.back
+  150  pwd
+  151  ls -l
+  152  ls -l project_plans
+  153  ln season2_project_plan.odf \ ~/Documents/backups/season2_project_plan.odf.back
+  154  cd ..
+  155  pwd
+  156  mkdir ~/Documents/backups
+  157  ln ~/Documents/project_plans/season2_project_plan.odf ~/Documents/backups/season2_project_plan.odf.back
+  158  pwd
+  159  ls -l
+  160  ls -lR
+  161  history
