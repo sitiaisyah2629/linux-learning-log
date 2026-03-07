@@ -1,0 +1,23 @@
+HISTORY
+
+    2  ls -l
+    3  ls -l /files
+    4  ls -l ~/files
+    5  cat ~/files
+    6  cat ~/files/*
+    7  cat ~/links/*
+    8  cat ~/links
+    9  ls  ~/links
+   10  ls -li files/target.file
+   11  ln files/target.file links/file.hardlink
+   12  ln -li files/target.file links/file.hardlink
+   13  ls -li files/target.file links/file.hardlink
+   14  cat links/file.hardlink
+   15  ln -s /tmp /home/student/tempdir
+   16  ls -li /tmp /home/student/tempdir
+   17  ls -l /tmp /home/student/tempdir
+   18  ls -l
+   19  cd tempdir
+   20  touch tryfile
+   21  ls -l /tmp
+   22  history
