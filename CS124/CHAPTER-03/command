@@ -23,7 +23,11 @@ ls -l [[:alpha:]]*	# Any alphabetic character at the end
 ls -l *[[:lower:]]* # any lowercase character in the middle
 ls -l *[[:upper:]] # any uppercase character at front
 ls -l *[[:digit:]]* # any single digit from 0-9 in the middle
-
+mkdir ../RHEL{7,8,9} # create directory RHEL7 RHEL8 RHEL9
+echo Today is $(date +%A) # print day
+mkdir -p Videos/season{1..2} # create directory videos that consist of seasons1 and seasons2 (theres no dir videos yet)
+$(date +%F) # print current date in format (YYYY-MM-DD)
+$(date +%s) # print current date in format second from 1970-01-01
 
 
 
