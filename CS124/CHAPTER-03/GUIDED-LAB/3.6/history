@@ -1,0 +1,46 @@
+HISTORY
+
+100  mkdir Music Pictures Videos
+  101  ls
+  102  cd Music
+  103  ls
+  104  cd ~
+  105  pwd
+  106  rm -r Music Videos Pictures
+  107  ls -l
+  108  mkdir Music Videos Pictures
+  109  touch film1.avi film2.avi film3.avi film4.avi film5.avi film6.avi
+  110  ls -l
+  111  touch song1.mp3 song2.mp3 song3.mp3 song4.mp3 song5.mp3 song6.mp3
+  112  ls- l
+  113  ls -l
+  114  touch snap1.jpg snap2.jpg snap3.jpg snap4.jpg snap5.jpg snap6.jpg
+  115  ls -l
+  116  mv *.avi ~/Videos # move any file that end with avi to directory videos
+  117  ls -l
+  118  mv *.jpg ~/Pictures
+  119  mv *.mp3 ~/Music
+  120  ls -lR
+  121  ,d
+  122  mkdir family friends work
+  123  ls
+  124  cd friends
+  125  cp ~/Videos/film1.avi ~/Video/film2.avi ~/Music/song1.mp3 ~/Music/song2.mp3 ~/Picture/snap1.jpg ~/Picture/snap2.jpg .
+  126  cp ~/Videos/film1.avi ~/Videos/film2.avi ~/Music/song1.mp3 ~/Music/song2.mp3 ~/Pictures/snap1.jpg ~/Pictures/snap2.jpg .
+  127  ls -l
+  128  cd ../family
+  129  ls
+  130  cp ~/Videos/film3.avi ~/Videos/film4.avi ~/Music/song3.mp3 ~/Music/song4.mp3 ~/Pictures/snap3.jpg ~/Pictures/snap4.jpg .
+  131  ls -l
+  132  cd ../work
+  133  pwd
+  134  cp ~/friends ~/family .
+  135  cp -r  ~/friends ~/family . # copy directory and its content to friends and family to current directory
+  136  ls -l
+  137  cd ..
+  138  ls
+  139  rm -r family friends work
+  140  ls -lR
+  141  ls -lr
+  142  exit
+  143  history
