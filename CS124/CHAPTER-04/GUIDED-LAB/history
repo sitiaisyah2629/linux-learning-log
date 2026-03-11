@@ -1,0 +1,14 @@
+   16  ls
+   17  ls -l
+   18  cat manual
+   19  man gedit
+   20  gedit + manual
+   21  gedit+manual
+   22  gedit + manual
+   23  man 1 su # list section with su command
+   24  man man
+   25  man -f w 
+   26  man -k zip
+   27  man -k boot
+   28  man -k ext4
+   29  lab finish help-manual
