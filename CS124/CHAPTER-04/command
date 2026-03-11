@@ -4,8 +4,7 @@ man (section topic) (command) # view section topics below eg. man 5 passwd
 man -f passwd # display a one-line summary for each matching page
 man -K passwd #   display titles also discriptions of all manual pages related to keyword
   
-  
-  
+
   
   
   
