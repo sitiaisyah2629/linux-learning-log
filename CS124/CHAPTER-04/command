@@ -1,0 +1,47 @@
+MAN - MANUAL PAGE
+
+man (section topic) (command) # view section topics below eg. man 5 passwd
+man -f passwd # display a one-line summary for each matching page
+man -K passwd #   display titles also discriptions of all manual pages related to keyword
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+---------------------------------------------------------------------------------  
+NAVIGATION IN MAN 
+D - scroll forward one half-screen
+U - scroll backward one half-screen 
+G - go to the start of the man page
+shift+G - go to the end of the man page
+Q - exit man and return to command shell prompt
+---------------------------------------------------------------------------------  
+Common Sections of the Linux Manual
+1 - user commands
+Both executable and shell programs
+2 - system calls
+Kernel routines that are invoked from user space
+3 - library functions
+Provided by program libraries
+4 - special files
+Such as device files
+5 - file formats
+For many configuration files and structures
+6 - games and screensaveers
+Historical section for amusing programs
+7 - conventions, standards and miscellaneous
+Protocols and file systems
+8 - system administration and privileged commands
+Maintenance tasks
+9 - linux kernel API
+Internal kernel calls
