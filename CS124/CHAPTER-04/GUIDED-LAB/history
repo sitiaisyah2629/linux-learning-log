@@ -7,8 +7,8 @@
    22  gedit + manual
    23  man 1 su # list section with su command
    24  man man
-   25  man -f w 
-   26  man -k zip
+   25  man -f w # f manual pages referenced by smail and print out to short desc of any found. equivalent to whatis(1)
+   26  man -k zip # k for search short description. equivalent to apropos printf
    27  man -k boot
    28  man -k ext4
    29  lab finish help-manual
