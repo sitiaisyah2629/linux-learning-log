@@ -1,4 +1,23 @@
+WHY USE REDIRECT?
+- You can save the messages to a file instead of displaying the output on the terminal. 
+Alternatively, you can use redirection to discard output or errors, so they are not displayed
+on the terminal or saved.
+- You can redirect a process stdout to suppress the process output from appearing on the terminal.
+If you redirect stdout to a file and the file does not exist, then the file is created. If the file
+does exist and the redirection does not append (add) to the file, then the redirection overwrites the file's
+contents. To discard the output of a process, you can redirect to the empty /dev/null special file that
+discards channel output that is redirected to it.
+
 stdin – standard input 
 stdout – standard output 
 stderr – standard error 
+
+0 - standard input
+1 - standard output
+2 - standard error
+
+ls > text.txt - list in text.txt file
+date > /tmp/saved-timestampt - save current date to /tmp/saved-timestamp
+tail -n 100 /var/log/secure > /tmp/last-100-log-secure - save 100 lines from below from /var/log/secure to /tmp/last-100-log-secure 
+cat step1.sh step2.log step3 step4 > /tmp/all-four-steps-in-one - display all the content of this file in /tmp/all-four-steps-in-one
 
