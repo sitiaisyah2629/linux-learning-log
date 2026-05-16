@@ -48,3 +48,8 @@ The a key appends text at the end of the current line.
 The :w command writes (saves) the file and remains in command mode for more editing.
 The :wq command writes (saves) the file and quits Vim.
 The :q! command quits Vim, and discards all file changes since the last write.
+
+
+COUNT=aisyah
+echo COUNT = COUNT
+echo &COUNT = aisyah
