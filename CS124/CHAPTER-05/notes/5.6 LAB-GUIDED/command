@@ -1,0 +1,13 @@
+[student@servera 18:01:22 ~]$ history
+    1  sudo -i
+    2  vim
+    3  vimtutor
+    4  exit
+    5  vim ~/.bashrc
+    6  exit
+    7  file=tmp.zdkei083
+    8  echo $file
+    9  export EDITOR=vim
+   10  echo &EDITOR
+   11  echo $EDITOR
+   12  history
