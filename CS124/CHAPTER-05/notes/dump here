@@ -37,6 +37,7 @@ Block mode : Ctrl+v
 : keystroke begins to extended command mode to save, quit or save and quit
 
 Red Hat recommends that you learn the following Vim keys and commands.
+(hang back, jump down, kick up, leap forward.)
 The u key undoes the most recent edit.
 The x key deletes a single character.
 The h key moves the cursor left.
