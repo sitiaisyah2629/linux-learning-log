@@ -21,3 +21,29 @@ date > /tmp/saved-timestampt - save current date to /tmp/saved-timestamp
 tail -n 100 /var/log/secure > /tmp/last-100-log-secure - save 100 lines from below from /var/log/secure to /tmp/last-100-log-secure 
 cat step1.sh step2.log step3 step4 > /tmp/all-four-steps-in-one - display all the content of this file in /tmp/all-four-steps-in-one
 
+
+vim
+1. edit mode
+2. command mode
+3. visual mode
+4. extended command mode
+
+press i to enter edit mode.
+press esc to exit and go to command mode
+press v to enter visual mode:
+Character mode : v
+Line mode : Shift+v
+Block mode : Ctrl+v
+: keystroke begins to extended command mode to save, quit or save and quit
+
+Red Hat recommends that you learn the following Vim keys and commands.
+The u key undoes the most recent edit.
+The x key deletes a single character.
+The h key moves the cursor left.
+The j key moves the cursor down.
+The k key moves the cursor up.
+The l key moves the curser right.
+The a key appends text at the end of the current line.
+The :w command writes (saves) the file and remains in command mode for more editing.
+The :wq command writes (saves) the file and quits Vim.
+The :q! command quits Vim, and discards all file changes since the last write.
