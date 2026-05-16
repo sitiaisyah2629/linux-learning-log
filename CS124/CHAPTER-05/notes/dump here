@@ -22,7 +22,7 @@ tail -n 100 /var/log/secure > /tmp/last-100-log-secure - save 100 lines from bel
 cat step1.sh step2.log step3 step4 > /tmp/all-four-steps-in-one - display all the content of this file in /tmp/all-four-steps-in-one
 
 
-vim
+vim (NAK BELAJAR VIM TUTOR, BELAJAR DALAM 'VIMTUTOR')
 1. edit mode
 2. command mode
 3. visual mode
