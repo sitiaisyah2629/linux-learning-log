@@ -1,0 +1,12 @@
+ls | tee folder_list.txt - list all file in terminal also create a file name folder_list.txt and list all the file in this file (duplicate)
+> file 2> /dev/null -
+> file = save successful things in file (overwrites if the file exist)
+2> /dev/null = any error messagges will be throw here
+> file 1> /dev/null -
+> file = save successfully things in file
+1> /dev/null = this command overwrite the first command. in linux, the last command will imply. so, the success command will throw in /dev/null.
+ screen show error output
+&> file - both success and error message are saved in file
+>> file 2>&1 - notice the 2 on the left. This means "send errors to where stream 1 is currently going".
+  
+  
