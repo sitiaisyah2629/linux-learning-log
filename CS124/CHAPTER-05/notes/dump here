@@ -33,7 +33,7 @@ press esc to exit and go to command mode
 press v to enter visual mode:
 Character mode : v
 Line mode : Shift+v
-Block mode : Ctrl+v
+Block mode : Ctrl+v/ctrl+q
 : keystroke begins to extended command mode to save, quit or save and quit
 
 Red Hat recommends that you learn the following Vim keys and commands.
