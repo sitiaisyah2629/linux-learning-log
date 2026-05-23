@@ -1,1 +1,14 @@
-
+   15  lab start edit-review
+   16  lab_file=editing_final_lab.txt
+   17  ls -al > editing_final_lab.txt
+   18  ls
+   19  cat editing_final_lab.txt
+   20  rm editing_final_lab.txt
+   21  ls
+   22  lab_file=editing_final_lab.txt
+   23  ls -al > $lab_file
+   24  vim $lab_file
+   25  cp $lab_file \editing_final_lab_$(date +%).txt
+   26  echo "------------" >> $lab_file
+   27  ls Documents/ | tee -a $lab_file
+   28  cat $lab_file
