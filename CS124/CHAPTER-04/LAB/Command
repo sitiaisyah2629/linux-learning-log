@@ -1,0 +1,23 @@
+History
+
+   33  lab start help-review
+   34  man man
+   35  man -t
+   36  man man
+   37  man man -t
+   38  ls > /tmp/my-file-names
+   39  man -t passwd > passwd.ps
+   40  las -al
+   41  ls -al
+   42  file /home/student/passwd.ps
+   43  less /home/student/passwd.ps
+   44  man -k postscript viewwe
+   45  man -k postscript viewer
+   46  man evince
+   47* 
+   48  evince /home/student/passwd.ps
+   49  evince -w /home/student/passwd.ps
+   50  evince -i 3 /home/student/passwd.ps
+   51  man lp
+   52  firefox /usr/share/doc
+   53  lab grade help-review
