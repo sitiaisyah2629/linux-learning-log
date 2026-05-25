@@ -1,1 +1,23 @@
+History
 
+   34  ls
+   35  cat passwd
+   36  cd ../..
+   37  pwd
+   38  ls
+   39  cd /root
+   40  tail -5 /retc/passwd
+   41  tail -5 /etc/passwd
+   42  passwd operator1
+   43  useradd operator2
+   44  passwd operator2
+   45  useradd operator3
+   46  passwd operator3
+   47  usermod -c "Operator One" operator1
+   48  usermod -c "Operator Two" operator2
+   49  tail /etc/passwd
+   50  userdel -r operator3
+   51  tail /etc/passwd
+   52  ls -la /home
+   53  exit
+   54  history
