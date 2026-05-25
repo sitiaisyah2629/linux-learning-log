@@ -1,26 +1,29 @@
 History
 
-9  vim /etc/login.defs
-   10  groupadd -g 35000 consultants
-   11  vim /etc/sudoers.d/consultants
-   12  useradd -G consultants consultants1
-   13  useradd -G consultants consultants2
-   14  userdel consultants1
-   15  userdel consultants2
-   16  useradd -G consultants consultant2
-   17  useradd -G consultants consultant1
-   18  useradd -G consultants consultant3
-   19  tail /etc/passwd
-   20  tail /etc/group
-   21  passwd consultant1
-   22  passwd consultant2
-   23  passwd consultant3
-   24  date -d "+90 days" +%F
-   25  date
-   26  chage -E 2026-08-23 consultant1
-   27  chage -E 2026-08-23 consultant2
-   28  chage -E 2026-08-23 consultant3
-   29  chage -M 15 consultant2
-   30  chage -d 0 consultant1
-   31  chage -d 0 consultant2
-   32  chage -d 0 consultant3
+   55  vim /etc/login.defs
+   56  groupadd -g 35000 consultants
+   57  vim /sudoers.d/consultants
+   58  vim /etc/sudoers.d/consultants
+   59  useradd -G consultants consultant1
+   60  useradd -G consultants consultant2
+   61  useradd -G consultants consultant3
+   62  tail /etc/passwd
+   63  tail /etc/group
+   64* 
+   65  passwd consultant2
+   66  passwd consultant3
+   67  date -d "+90 days" +%F
+   68  chage -E 2026-08-23 consultant1
+   69  chage -E 2026-08-23 consultant2
+   70  chage -E 2026-08-23 consultant3
+   71  chage -l consultant1
+   72  chage -l consultant2
+   73  chage -l consultant3
+   74  chage -M 15 consultant2
+   75  chage -l consultant2
+   76  chage -d 0 consultant1
+   77  chage -d 0 consultant2
+   78  chage -d 0 consultant3
+   79  chage -l consultant1
+   80  chage -l consultant2
+   81  chage -l consultant3
