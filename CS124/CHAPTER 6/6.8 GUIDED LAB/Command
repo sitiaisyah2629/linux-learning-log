@@ -1,27 +1,27 @@
 History
 
 57  groupadd -g 30000 operators
-   58  groupad admin
-   59  groupadd admin
-   60  tail /etc/passwd
-   61  groupadd -g 30000 operators'
-   62  groupadd -g 30000 operators
-   63  groupadd admin
-   64  tail /etc/passwd
-   65  id
-   66  usermod -aG operators operators1
-   67  usermod -aG operators operator1
-   68  usermod -aG operators operator2
-   69  usermod -aG operators operator3
-   70  id operator1
-   71  id operator2
-   72  id operator3
-   73  usermod -aG admin sysadmin1
-   74  usermod -aG admin sysadmin2
-   75  usermod -aG admin sysadmin3
-   76  id sysadmin1
-   77  id sysadmin2
-   78  id sysadmin3
-   79  tail /etc/group
-   80  echo "%admin ALL=(ALL) ALL" >> /etc/sudoers.d/admin
-   81  su - sysadmin1
+58  groupad admin
+59  groupadd admin
+60  tail /etc/passwd
+61  groupadd -g 30000 operators'
+62  groupadd -g 30000 operators
+63  groupadd admin
+64  tail /etc/passwd
+65  id
+66  usermod -aG operators operators1
+67  usermod -aG operators operator1
+68  usermod -aG operators operator2
+69  usermod -aG operators operator3
+70  id operator1
+71  id operator2
+72  id operator3
+73  usermod -aG admin sysadmin1
+74  usermod -aG admin sysadmin2
+75  usermod -aG admin sysadmin3
+76  id sysadmin1
+77  id sysadmin2
+78  id sysadmin3
+79  tail /etc/group
+80  echo "%admin ALL=(ALL) ALL" >> /etc/sudoers.d/admin
+81  su - sysadmin1
