@@ -1,2 +1,26 @@
 History
 
+9  vim /etc/login.defs
+   10  groupadd -g 35000 consultants
+   11  vim /etc/sudoers.d/consultants
+   12  useradd -G consultants consultants1
+   13  useradd -G consultants consultants2
+   14  userdel consultants1
+   15  userdel consultants2
+   16  useradd -G consultants consultant2
+   17  useradd -G consultants consultant1
+   18  useradd -G consultants consultant3
+   19  tail /etc/passwd
+   20  tail /etc/group
+   21  passwd consultant1
+   22  passwd consultant2
+   23  passwd consultant3
+   24  date -d "+90 days" +%F
+   25  date
+   26  chage -E 2026-08-23 consultant1
+   27  chage -E 2026-08-23 consultant2
+   28  chage -E 2026-08-23 consultant3
+   29  chage -M 15 consultant2
+   30  chage -d 0 consultant1
+   31  chage -d 0 consultant2
+   32  chage -d 0 consultant3
