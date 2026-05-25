@@ -1,0 +1,42 @@
+SET PASSWORD FOR USER
+#passwd user01
+
+ADD USER IN HOME DIR
+#useradd user01
+
+DELETE USER
+#userdel user01
+
+FORCE TO ADD USER WITH SPECIFIC ID
+#useradd -u 1000 user02
+
+ADD SPECIFIC GROUP WITH ID
+#groupadd -g 10000 group01
+
+CREATE GROUPS BUT ID WILL BE LOWER 1000
+#groupadd -r group02
+Running groupadd -r group02 creates the group normally, but tags it with a low-numbered GID (e.g., 982) 
+so the system knows it is intended for system maintenance or background tools, not typical human users.
+
+RENAME THE GROUP NAME
+#groupmod -n group0022 group02
+
+CHANGE THE GID
+#groupmod -g 20000 group0022
+
+CHANGE A USER'S PRIMARY GROUP
+#usermod -g group01 user02
+
+ADD USER TO SUPPLEMENTARY GROUP
+#usermod -aG group01 user03
+
+CHANGE TEMP GROUP
+#newgrp group01
+
+UID Ranges
+Red Hat Enterprise Linux uses specific UID numbers and ranges of numbers for specific purposes.
+UID 0 : The superuser (root) account UID.
+UID 1-200 : System account UIDs that are statically assigned to system processes.
+UID 201-999 : UIDs that are assigned to system processes that do not own files on this system. Software that requires an unprivileged UID is 
+dynamically assigned a UID from this available pool.
+UID 1000+ : The UID range to assign to regular, unprivileged users.
