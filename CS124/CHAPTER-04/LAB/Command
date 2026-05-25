@@ -4,20 +4,20 @@ History
    34  man man
    35  man -t
    36  man man
-   37  man man -t
+   37  man man -t = open all man pages to postscript code
    38  ls > /tmp/my-file-names
-   39  man -t passwd > passwd.ps
+   39  man -t passwd > passwd.ps - redirect the passwd stuff to passwd.ps
    40  las -al
    41  ls -al
    42  file /home/student/passwd.ps
    43  less /home/student/passwd.ps
    44  man -k postscript viewwe
-   45  man -k postscript viewer
+   45  man -k postscript viewer = without -k, linux find exactly what the postcript and viewer. with -k, linux search through all the short desc
    46  man evince
    47* 
-   48  evince /home/student/passwd.ps
-   49  evince -w /home/student/passwd.ps
-   50  evince -i 3 /home/student/passwd.ps
-   51  man lp
-   52  firefox /usr/share/doc
+   48  evince /home/student/passwd.ps - evince standard doc viewer in linux to display (.ps,.pdf,.tiff,.dvi,.cbz/.cbr)
+   49  evince -w /home/student/passwd.ps - use evince in preview mode. hardly modify when in this mode
+   50  evince -i 3 /home/student/passwd.ps - to open to a specific page. (--pagae-index)
+   51  man lp - use man and search fon lp (line printer)
+   52  firefox /usr/share/doc - use firefox to open in graphical to open doc files
    53  lab grade help-review
