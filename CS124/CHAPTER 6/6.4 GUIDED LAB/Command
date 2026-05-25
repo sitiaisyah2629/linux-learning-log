@@ -1,0 +1,31 @@
+History
+
+    1  sudo -i - enter root environment
+    2  id - check current id
+    3  pwd - check the starting root dir
+    4  echo $Home 
+    5  echo $HOME - display dir from home dir
+    6  LS
+    7  Als
+    8  ls
+    9  ls -l
+   10  echo $PATH - echo path
+   11  SUDO SU
+   12  sudo su 
+   13  sudo su - = clean way to enter root environment different from 'sudo su'. we can use 'sudo su -l' or 'sudo su --login'
+   14  sudo cat  /etc/sudoers.d/operator1 
+   15  su - operator1
+   16  exit
+   17  history
+   18  su - operator1
+   19  sudo cat /etc/sudoers.d/operator1 - cat this file
+   20  su - operator1 - login as operator1
+   21  id 
+   22  pwd
+   23  echo $HOME
+   24  echo $PARTH
+   25  echo $PATH
+   26  sudo su
+   27  sudo su -
+   28  sudo cat /etc/sudoers.d/operator1
+   29  su - operator1
