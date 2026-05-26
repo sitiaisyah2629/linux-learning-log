@@ -1,1 +1,4 @@
-regq
+History
+
+   12  cat /etc/ssh/sshd_config
+   13  vim /etc/ssh/sshd_config
