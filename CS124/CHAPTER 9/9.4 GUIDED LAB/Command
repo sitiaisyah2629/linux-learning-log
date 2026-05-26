@@ -1,1 +1,14 @@
-ehteah
+History
+
+   26  systemctl status sshd
+   27  systemctl restart sshd
+   28  systemctl status sshd
+   29  systemctl reload sshd
+   30  systemctl status sshd
+   31  systemctl sttus chronyd
+   32  systemctl status chronyd
+   33  systemctl stop chronyd
+   34  systemctl status chronyd
+   35  systemctl is-enabled chronyd
+   36  history
+   39  systemctl disable chronyd
