@@ -1,1 +1,5 @@
-ggerg
+History
+
+   14  vim /etc/ssh/sshd_config
+   15  systemctl reload sshd
+   16  vim /etc/ssh/sshd_config
