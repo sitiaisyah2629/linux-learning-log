@@ -1,0 +1,8 @@
+Strict Host Key Checking
+1. The StrictHostKeyChecking parameter is set in the user-specific ~/.ssh/config file, or in the system-wide /etc/ssh/ssh_config file, or by specifying 
+the -o StrictHostKeyChecking= option of the ssh command.
+2. If the StrictHostKeyChecking parameter is set to yes, then the ssh command always aborts the SSH connection if the public keys do not match.
+3. If the StrictHostKeyChecking parameter is set to no, then the ssh command enables the connection and adds the key of the target host to 
+the ~/.ssh/known_hosts file.
+4. If the target host SSH key changed since the last time that you connected to it, then the ssh command asks for confirmation to log in and accept the new key.
+5. If you accept the new key, then a copy of the public key is saved in the ~/.ssh/known_hosts file to automatically confirm the server's identity on subsequent connections.
