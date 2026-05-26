@@ -44,3 +44,31 @@ CHANGER OWNERSHIP RECURSIVELY TO THAT DIRECTORY
 
 CHANGE OWNERSHIP DIR NAME Pictures TO VISITOR USER AND GUESTS GROUP
 #chown visitor:guests Pictures
+
+
+Permission	Effect on files	Effect on directories
+u+s (suid)	File executes as the user that owns the file, not as the user that ran the file.	No effect.
+g+s (sgid)	File executes as the group that owns the file.	Files that are created in the directory have a group owner to match the group owner
+of the directory.
+o+t (sticky)	No effect.	Users with write access to the directory cannot delete or rename files that they do not own.
+
+
+In Linux, files are normally executed using the permissions of the user who is running them. For example, if you run a backup script, it runs 
+with your user privileges. However, there are times when a normal user needs to run a program that requires administrative (root) privileges—like
+changing their own password. This is where SUID (Set User ID) and SGID (Set Group ID) come in. They are special permissions that allow a file to 
+be executed with the privileges of the file's owner or group, rather than the person running it.
+
+A Real-World Example (Default umask 022)
+On most standard Linux distributions, the default umask value is 022. Let’s look at what happens when you create a new directory and a new file under this mask:
+Creating a Directory:
+Baseline: 777
+Subtract umask: 022
+Resulting Permission: 755 (drwxr-xr-x)
+What this means: You (the owner) get full control (7). Your group and everyone else can view and enter the directory (5), but they cannot modify it.
+
+Creating a File:
+Baseline: 666
+Subtract umask: 022
+Resulting Permission: 644 (-rw-r--r--)
+What this means: You can read and write to the file (6). Everyone else can only read it (4). No one can execute it.
+
