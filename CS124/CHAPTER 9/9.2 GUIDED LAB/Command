@@ -1,1 +1,12 @@
-egrthj
+History
+
+  102  systemctl list-units --type=services
+  103  systemctl list-units --type=service
+  104  systemctl list-units --type=socket --all
+  105  systemctl status chronyd
+  106  ps -p 737
+  107  systemctl is-enabled sshd
+  108  systemctl is-active sshd
+  109* 
+  110  systemctl list-units-files --type=service
+  111  systemctl list-unit-files --type=service
