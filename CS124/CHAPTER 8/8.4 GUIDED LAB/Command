@@ -1,1 +1,41 @@
 History
+  top - nak tengok running process
+  top -u <username> - nak tengok process apa running dekat user tu
+  kill <PID> - process tu akan stop
+  pgrep "ping" - cari perkataan ping dekat process
+  pkill "ping" - kill process yang ada perkataan ping
+  while true; do echo hello world; sleep 1; done - dia echo hello world
+  while true; do echo hello world; sleep 1; done - dia echo hello world tapi sleep 1 sec pastu sambung
+
+  vim demo_test.sh
+  ------------------------------------
+  #!/bin/bash
+
+  while true; echo hello world; sleep 1; done
+   ----------------------
+  chmod +x demo_test.sh
+
+   19  vim /home/student/bin/control
+   20  chmod +x /home/student/bin/control
+   21  control technical
+   22  tail -f ~/control_outfile
+   23  control technical
+   24  tail -f ~/control_outfile
+   25  jobs
+   26  bg
+   27  jobs
+   28  tail -f ~/control_outfile 
+   29  control documents &
+   30  zz
+   31  cc
+   32  jobs
+   33  fg %1
+   34  jobs
+   35  fg %
+   36  fg %2
+   37  jobs
+   38  ps jT
+   39  jobs
+   40  ps jTfg %3
+   41  fg %3
+   42  jobs
