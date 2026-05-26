@@ -1,1 +1,13 @@
+History
 
+    9  mkdir /home/techdocs
+   10  chown :techdocs /home/techdocs - change ownership group
+   11  su - tech1
+   12  chmod 2770 /home/techdocs
+   13  ls -l  /home/techdocs
+   14  ls -ld  /home/techdocs
+   15  su - tech1
+   16  su - tech2
+   17  vim /etc/login.defs - adjust umask dekat sini
+   18  cat /etc/login.defs
+   19  exit
