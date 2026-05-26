@@ -1,1 +1,30 @@
-gw
+History
+
+   25  pkill -SIGSTOP process101
+   26  jobs
+   27  pkill -SIGCONT process101
+   28  top
+   29  jobs
+   30  pkill process101
+   31  pkill process102
+   32  pkill process103
+
+
+   15  mkdir /home/student/bin
+   16  vim /home/student/bin/process101
+   17  chmod +x /home/student/bin/process101
+   18  grep "model name" /prod/cpuinfo | wc -l
+   19  grep "model name" /proc/cpuinfo | wc -l
+   20  cd /home/student/bin
+   21  process101 &
+   22  ls -l /home/student/.config/procps/toprc
+   23  cp process101 process102
+   24  vim process102
+   25  process102 &
+   26  jobs
+   27  cp process101 process103
+   28  vim process103
+   29  process103 &
+   30  jobs
+   31  su -
+
