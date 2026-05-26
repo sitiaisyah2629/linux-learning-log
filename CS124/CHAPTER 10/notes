@@ -11,3 +11,27 @@ The ssh command records the host key on the /home/student/.ssh/known_hosts file 
 The student user initiated the SSH connection from the servera machine. If the /home/student/.ssh/known_hosts file does not exist, then it is 
 created along with the new entry in it. The ssh command fails to execute correctly if the remote host appears to have a different key from the 
 recorded key.
+
+SSH Keys Generation
+Use the ssh-keygen command to create a key pair. By default, the ssh-keygen command saves your private and public keys in the ~/.ssh/id_rsa and
+~/.ssh/id_rsa.pub files, but you can specify a different name.
+
+ ssh-keygen
+ssh-keygen -f .ssh/key-with-pass
+sh-copy-id -i .ssh/key-with-pass.pub user@remotehost
+ssh -i .ssh/key-with-pass user@remotehost
+eval $(ssh-agent)
+ssh-add
+ssh user@remotehost
+ssh -i .ssh/key-with-pass user@remotehost
+
+#ssh -v user@remotehost
+Basic Troubleshoot
+1. OpenSSH and OpenSSL versions.
+2. OpenSSH configuration files.
+3. Connection to the remote host.
+4. Trying to authenticate the user on the remote host.
+5. Authentication methods that the remote host allows.
+6. Trying to authenticate the user by using the SSH key.
+7. Using the /home/user/.ssh/id_rsa key file to authenticate.
+8. The remote hosts accepts the SSH key.
