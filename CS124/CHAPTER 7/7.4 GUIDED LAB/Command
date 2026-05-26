@@ -1,1 +1,14 @@
+History
 
+   13  mkdir /home/consultants - create dir
+   14  chown :consulatants //home/consultants 
+   15  chown :consultants /home/consultants - change ownership  consultants to group consultants
+   16  ls -l /home/consultants 
+   17  ls -ld /home/consultants - list long the dir
+   18  chmod g+w /home/consultants - change mode the group so it could have permission to write
+   19  ls -ld /home/consultants
+   20  chmod 770 /home/consultants - change mode so the others could not have any permission
+   21  ls -ld /home/consultantss
+   22  ls -ld /home/consultants
+   23  exit
+   24  history
