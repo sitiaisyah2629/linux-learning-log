@@ -27,4 +27,45 @@ Run Jobs in the Background
 #fg %1 - Use the fg command to bring a background job to the foreground. Use the (%jobNumber) format to specify the process to foreground.
 To send a foreground process to the background, press the keyboard-generated suspend request (Ctrl+z) in the terminal. The job is placed in the background and suspended.
 #bg %1
+#uptime
 
+Real-time Process Monitoring
+The top command displays a dynamic view of the system's processes and a summary header followed by a process or thread list. Unlike the 
+static ps command output, the top command continuously refreshes at a configurable interval and provides column reordering, sorting, and 
+highlighting. You can make persistent changes to the top settings. The default top output columns are as follows:
+The process ID (PID).
+
+The process owner username (USER).
+
+Virtual memory (VIRT) is all the memory that the process uses, including the resident set, shared libraries, and any mapped or swapped 
+memory pages (labeled VSZ in the ps command). Resident memory (RES) is the physical memory that the process uses, including any resident,
+shared objects (labeled RSS in the ps command).
+
+Process state (S) can be one of the following states:
+D = Uninterruptible Sleeping
+R = Running or Runnable
+S = Sleeping
+T = Stopped or Traced
+Z = Zombie
+
+CPU time (TIME) is the total processing time since the process started. It can be toggled to include a cumulative time of all previous 
+children.
+The process command name (COMMAND).
+
+Table 8.3. Fundamental Keystrokes in top Command
+Key	Purpose
+? or h	Help for interactive keystrokes.
+l, t, m	Toggles for load, threads, and memory header lines.
+1	Toggle for individual CPUs or a summary for all CPUs in the header.
+s	Change the refresh (screen) rate, in decimal seconds (such as 0.5, 1, 5).
+b	Toggle reverse highlighting for Running processes; the default is bold only.
+Shift+b	Enables bold use in display, in the header, and for Running processes.
+Shift+h	Toggle threads; show process summary or individual threads.
+u, Shift+u	Filter for any username (effective, real).
+Shift+m	Sort process listing by memory usage, in descending order.
+Shift+p	Sort process listing by processor use, in descending order.
+k	Kill a process. When prompted, enter PID, and then signal.
+r	Renice a process. When prompted, enter PID, and then nice_value.
+Shift+w	Write (save) the current display configuration for use at the next top restart.
+q	Quit.
+f	Manage the columns by enabling or disabling fields. You can also set the sort field for top.
