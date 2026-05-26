@@ -6,3 +6,8 @@ the -o StrictHostKeyChecking= option of the ssh command.
 the ~/.ssh/known_hosts file.
 4. If the target host SSH key changed since the last time that you connected to it, then the ssh command asks for confirmation to log in and accept the new key.
 5. If you accept the new key, then a copy of the public key is saved in the ~/.ssh/known_hosts file to automatically confirm the server's identity on subsequent connections.
+
+The ssh command records the host key on the /home/student/.ssh/known_hosts file in the servera machine to identify the serverb machine. 
+The student user initiated the SSH connection from the servera machine. If the /home/student/.ssh/known_hosts file does not exist, then it is 
+created along with the new entry in it. The ssh command fails to execute correctly if the remote host appears to have a different key from the 
+recorded key.
