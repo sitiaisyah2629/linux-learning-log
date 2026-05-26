@@ -1,1 +1,13 @@
+History
 
+   35  systemctl status psacct
+   36  systemctl start psacct
+   37  systemctl is-active psacct
+   38  systemctl enable psacct
+   39  systemctl is-enable psacct
+   40  systemctl is-enabled psacct
+   41  systemctl status rsyslog
+   42  systemctl stop rsyslog
+   43  systemctl is-active rsyslog
+   44  systemctl disable rsyslog
+   45  systemctl is-enabled rsyslog
