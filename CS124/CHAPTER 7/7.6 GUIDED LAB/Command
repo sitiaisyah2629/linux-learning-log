@@ -1,1 +1,33 @@
+History
 
+    1  umask
+    2  mkdir /tmp/shared
+    3  las -ld/tmp/shared
+    4  ls -ld /tmp/shared
+    5  touch /tmp/shared/defaults
+    6  ls -l  /tmp/shared/defaults
+    7  chown :operators /tmp/shared
+    8  ls -ld  /tmp/shared
+    9  touch /tmp/shared/group
+   10  ls -l /tmp/shared/group
+   11  chmod g+s /tmp/shared
+   12  touch /tmp/shared/ops.db.txt
+   13  rm /tmp/shared/ops.db.txt
+   14  touch /tmp/shared/ops_db.txt
+   15  ls -l /tmp/shared/ops_db.txt
+   16  touch /tmp/shared/ops_net.txt
+   17  ls -l /tmp/shared/ops_net.txt
+   18  umask
+   19  umask 027
+   20  umasl
+   21  umask
+   22  touch /tmp/shared/ops_prod.txt
+   23  ls -l /tmp/shared/ops_prod.txt
+  
+    1  umask
+    2  echo "umask 007" ?? ~/bash.rc
+    3  echo "umask 007" >> ~/bash.rc
+    4  cat ~/bash.rc
+    5  rm ~/bash.rc
+    6  echo "umask 007" >> ~/.bashrc
+    7  cat ~/.bashrc
