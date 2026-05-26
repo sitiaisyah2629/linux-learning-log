@@ -1,0 +1,46 @@
+w - write
+r - read
+x - execute
+
+ls -ld /home = list secara memanjang dir yang ad kat dir home
+The first character of the long listing is the file type, and is interpreted as follows:
+- is a regular file.
+d is a directory.
+l is a symbolic link.
+c is a character device file.
+b is a block device file.
+p is a named pipe file.
+s is a local socket file
+
+               user      group
+-rw-rw-r--.  1 operator1 operator1     1024 Mar  4 11:02 app1.log
+- = ni file biasa
+rw- = owner/user takleh execute
+rw- = group permission
+r-- = others permission can read only
+
+chmod Who/What/Which file|directory
+u	- user	The file owner.
+g	- group	Member of the file's group.
+o	- other	Users who are not the file owner nor members of the file's group.
+a	- all	All the three previous groups.
+
+What	Operation	Description
++	add	Adds the permissions to the file.
+-	remove	Removes the permissions to the file.
+=	set exactly	Sets exactly the provided permissions to the file. 
+
+octal method
+user - rwx
+group - -wx
+others - ---
+chmod 750 sampledir 
+
+CHANGE OWNERSHIP app.conf TO STUDENT USER
+#chown student app.conf
+
+CHANGER OWNERSHIP RECURSIVELY TO THAT DIRECTORY
+#chown -R student Pictures
+
+CHANGE OWNERSHIP DIR NAME Pictures TO VISITOR USER AND GUESTS GROUP
+#chown visitor:guests Pictures
