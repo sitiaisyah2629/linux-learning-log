@@ -1,1 +1,44 @@
-few
+History
+LEFT
+  46  cd /home/student/bin
+   47  instance network &
+   48  instance interface &
+   49  instance connection &
+   50  jobs
+   51  vim /home/student/bin
+   52  vim /home/student/bin/instance
+   53  instance network &
+   54  instance interface &
+   55  jobs
+   56  instance connection &
+   57  jobs
+   58  kill -SIGSTOP %1
+   59  JOBS
+   60  jobs
+   61  kill -SIGTERM %2
+   62  jobs
+   63  kill -SIGCONT %1
+   64  jobs
+   65  kill -SIGTERM %1
+   66  kill -SIGTERM %3
+   67  jobs
+   68  ps -ef | grep tail
+   69  pkill -SIGTERM tail
+   70  ps -ef | grep tail
+   71  jobs
+   72  pkill -ST\IGTERM %1
+   73  pkill -STIGTERM %1
+   74  kill -STIGTERM %1
+   75  job
+   76  jobs
+   77  kill -STIGTERM %4
+   78  kill -SIGTERM %4
+   79  jobs
+   80  history
+
+RIGHT
+   46  mkdir /home/student/bin
+   47  vim /home/student/bin/instance
+   48  chmod +x /home/student/bin/instance
+   49  tail -f ~/instance_outfile
+   50  HISTORY
