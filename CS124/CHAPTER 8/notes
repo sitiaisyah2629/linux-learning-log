@@ -18,6 +18,8 @@ ps (process state)
 #ps -ef
 #ps j
 
+every process have process id
+every process have parent id
 Run Jobs in the Background
 #sleep 10000 &
 #example_command | sort | mail -s "Sort output" & = When a command line with a pipe (|) is sent to the background, the PID of the last command in the pipeline is displayed. All pipeline processes are members of that job.
