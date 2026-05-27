@@ -1,1 +1,12 @@
-wvrv  
+History
+
+nmcli con show
+ip -br addr show eth0
+ip route
+ping -c3 172.25.250.220
+
+
+
+
+
+
