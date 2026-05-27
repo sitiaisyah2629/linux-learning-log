@@ -28,3 +28,30 @@ Remove a package.	dnf remove PACKAGENAME
 Display transaction history.	dnf history
 
 
+dnf repolist all
+dnf config-manager --enable rhel-9-server-debug-rpms
+dnf config-manager \
+--add-repo="https://dl.fedoraproject.org/pub/epel/9/Everything/x86_64/"
+cd /etc/yum.repos.d
+cat \
+dl.fedoraproject.org_pub_epel_9_Everything_x86_64_.repo
+rpm --import \
+https://dl.fedoraproject.org/pub/epel/RPM-GPG-KEY-EPEL-9
+cat /etc/yum.repos.d/epel.repo
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
