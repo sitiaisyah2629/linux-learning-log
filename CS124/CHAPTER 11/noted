@@ -12,3 +12,34 @@ ip route
 tracepath access.redhat.com
 tracepath6 2001:db8:0:2::45
 ss -ta
+nmcli dev status
+nmcli con show
+nmcli con show --active
+nmcli con add con-name eno2 \
+nmcli con add con-name eno3 type ethernet ifname eno3 \
+nmcli con add con-name eno4 type ethernet ifname eno4 \
+nmcli con show
+nmcli dev disconnect ens3
+nmcli con show static-ens3
+nmcli con mod static-ens3 ipv4.addresses 192.0.2.2/24 \
+nmcli con mod static-ens3 ipv6.addresses 2001:db8:0:1::a00:1/64 \
+nmcli con mod static-ens3 +ipv4.dns 2.2.2.2
+nmcli con reload
+nmcli con reload eno2
+nmcli con del static-ens
+nmcli gen permissions
+
+Useful NetworkManager Commands
+The following table lists the key nmcli commands that are discussed in this section:
+
+Command	Purpose
+nmcli dev status - Show the NetworkManager status of all network interfaces.
+nmcli con show - List all connections.
+nmcli con show - name	List the current settings for the connection name.
+nmcli con add con - name name	Add and name a new connection profile.
+nmcli con mod name - Modify the connection name.
+nmcli con reload - Reload the configuration files, after manual file editing.
+nmcli con up name -	Activate the connection name.
+nmcli dev dis dev	- Disconnect the interface, which also deactivates the current connection.
+nmcli con del name - Delete the specified connection and its configuration file.
+
