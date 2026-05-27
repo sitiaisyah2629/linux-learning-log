@@ -1,0 +1,14 @@
+ip addr show dev eth0
+ip -br addr show dev eth0
+ping6 ff02::1%ens3
+ip link show
+ip addr show ens3
+ip -s link show ens3
+ping -c3 192.0.2.254
+ping6 2001:db8:0:1::1
+ping6 ff02::1%ens4
+ssh fe80::f482:dbff:fe25:6a9f%ens4
+ip route
+tracepath access.redhat.com
+tracepath6 2001:db8:0:2::45
+ss -ta
