@@ -1,1 +1,9 @@
-vvrvver
+History
+
+ip link
+ip -br addr
+ip -s link show eth0 - Display the statistics for the enX interface.
+ip route
+ping -c3 172.25.250.254
+tracepath classroom.example.com - Show all the hops between the local system and the classroom.example.com system.
+ss -lt = listening TCP sockets on the local system.
