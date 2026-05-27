@@ -1,1 +1,7 @@
-dvv
+History
+
+vim /etc/NetworkManager/system-connection/"System eth0.nmconnection"
+nmcli con reload
+nmcli con up "System eth0"
+ip -bri addr show eth0
+ping -c 10.0.1.1
