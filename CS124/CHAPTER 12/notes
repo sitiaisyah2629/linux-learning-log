@@ -1,0 +1,30 @@
+ls -l /bin/ | grep yum | awk '{print $9 " " $10 " " $11}'
+dnf list 'http*'
+dnf search all 'web server'
+dnf info dnf provides /var/www/htmlhttpd
+
+dnf install httpd
+dnf update
+dnf list kernel
+dnf remove httpd
+dnf group list
+dnf group info "RPM Development Tools"
+dnf group install "RPM Development Tools"
+tail -5 /var/log/dnf.rpm.log
+dnf history undo 6
+
+Summary of DNF Commands
+Packages can be located, installed, updated, and removed by name or by package groups.
+
+Task:	Command:
+List installed and available packages by name.	dnf list [NAME-PATTERN]
+List installed and available groups.	dnf group list
+Search for a package by keyword.	dnf search KEYWORD
+Show details of a package.	dnf info PACKAGENAME
+Install a package.	dnf install PACKAGENAME
+Install a package group.	dnf group install GROUPNAME
+Update all packages.	dnf update
+Remove a package.	dnf remove PACKAGENAME
+Display transaction history.	dnf history
+
+
