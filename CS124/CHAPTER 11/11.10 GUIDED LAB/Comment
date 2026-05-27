@@ -1,1 +1,7 @@
+History
+
+vim /etc/hosts
+hosts class
+getent hosts class
+ping -c3 class
 
