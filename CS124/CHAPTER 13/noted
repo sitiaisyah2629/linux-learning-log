@@ -1,0 +1,27 @@
+
+updatedb
+locate passwd
+locate image
+locate -i messages
+locate -n 5 passwd
+find / -name sshd_config
+find / -name '*.txt'
+find /etc -name '*pass*'
+find / -iname '*messages*'
+find -user developer
+find -group developer
+find -uid 1000
+find -gid 1000
+find / -user root -group mail
+find /home -perm 764
+find /home -perm 764 -ls
+find /home -perm -324
+find -perm -002
+find -size 10M
+find / -mmin +200
+find /etc -type d
+find / -type f -links +1
+
+
+
+
