@@ -1,1 +1,9 @@
 
+   34  ssh-keygen
+   35  ssh-copy-id -i .ssh/review3_key.pub student@servera
+   36  ssh -i .ssh/review3_key student@servera
+   37  sudo systemctl reload sshd.service
+   38  vim /etc/ssh/sshd_config
+   39  sudo vim /etc/ssh/sshd_config
+   40  sudo systemctl reload sshd.service
+   41  sudo dnf install zsh
