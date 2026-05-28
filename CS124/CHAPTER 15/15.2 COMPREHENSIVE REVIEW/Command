@@ -1,1 +1,21 @@
 
+4  mkdir grading
+    5  touch grading/grade{1,2,3}
+    6  ls grading/
+    7  head -5 bin/manage > grading/review.txt
+    8  cat grading/review.txt
+    9  tail -3 bin/manage >> grading/review.txt
+   10  cat grading/review.txt
+   11  cd grading/
+   12  cp review.txt review-copy.txt
+   13  cd
+   14  vim grading/review-copy.txt
+   15  cat grading/review-copy.txt
+   16  vim grading/review-copy.txt
+   17  cat grading/review-copy.txt
+   18  vim grading/review-copy.txt
+   19  ln grading/grade1 hardcopy
+   20  ls -l grading/grade1
+   21  ln -s grading/grade2 softcopy
+   22  ls -l softcopy
+   23  ls -l /boot > grading/longlisting.txt
