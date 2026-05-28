@@ -1,1 +1,15 @@
 
+    1  echo "umask 007" >> .bashrc
+    2  source ~/.bashrc
+    3  mkdir review2
+    4  ls -ld review2
+    5  chown :database review2
+    6  chmod g=rwx review2
+    7  chmod o+t review
+    8  chmod o+t review2
+    9  chmod g+s review2
+   10  chmod o+rx review2
+   11  ls -ld review2
+   12  chmod o+x /home/dbadmin1
+   13  ls -ld /home/dbadmin1
+   14  history
