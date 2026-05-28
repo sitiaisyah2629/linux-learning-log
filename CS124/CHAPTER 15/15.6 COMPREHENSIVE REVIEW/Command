@@ -1,1 +1,18 @@
 
+   22  lsblk -fs
+   23  mkdir /review-disk
+   24  mount /dev/vdb1 /review5-disk
+   25  rm -r /review-disk
+   26  mkdir /review5-disk
+   27  mount /dev/vdb1 /review5-disk
+   28  df -Th
+   29  find / -iname review5-path2>dev/null
+   30  find / -iname review5-path 2>dev/null
+   31  find / -iname review5-path 2>/dev/null
+   32  echo "/var/tmp/review5-path" >> /review5-disk/review5-path.txt
+   33  find / -user contractor1 group contractor -perm 640 2>/dev/null
+   34  find / -user contractor1 -group contractor -perm 640 2>/dev/null
+   35  echo "/usr/share/review5-perms" >> /review5-disk/review5-perms.txt
+   36  find / -type -size 100c 2>/dev/null
+   37  find / -type f -size 100c 2>/dev/null
+   38  find / -type f -size 100c 2>/dev/null > /review5-disk/review5-size.txt
