@@ -1,18 +1,18 @@
 
-   22  lsblk -fs
-   23  mkdir /review-disk
-   24  mount /dev/vdb1 /review5-disk
+   22  lsblk -fs - list info for block device, -f to add columns for UUIDMEXT4,NTFS), -s for inverse dependencies. tunjuk dari anak baru ke parent
+   23  mkdir /review-disk 
+   24  mount /dev/vdb1 /review5-disk - mount the partition to the directory 
    25  rm -r /review-disk
    26  mkdir /review5-disk
    27  mount /dev/vdb1 /review5-disk
-   28  df -Th
-   29  find / -iname review5-path2>dev/null
+   28  df -Th - df (display disk space), -T (add cplumn to show filesystem), -h (human readable)
+   29  find / -iname review5-path2>dev/null - search entire system for a file (ignoring case sensitive)
    30  find / -iname review5-path 2>dev/null
-   31  find / -iname review5-path 2>/dev/null
-   32  echo "/var/tmp/review5-path" >> /review5-disk/review5-path.txt
+   31  find / -iname review5-path 2>/dev/null - search entire system for a file and dump the error to destroy in /dev/null
+   32  echo "/var/tmp/review5-path" >> /review5-disk/review5-path.txt - echo and update the file
    33  find / -user contractor1 group contractor -perm 640 2>/dev/null
-   34  find / -user contractor1 -group contractor -perm 640 2>/dev/null
+   34  find / -user contractor1 -group contractor -perm 640 2>/dev/null - find sepecific user
    35  echo "/usr/share/review5-perms" >> /review5-disk/review5-perms.txt
    36  find / -type -size 100c 2>/dev/null
-   37  find / -type f -size 100c 2>/dev/null
+   37  find / -type f -size 100c 2>/dev/null - type f (specific to regular file), -size 100c (exactly 100 bytes). 100c means 100 characters
    38  find / -type f -size 100c 2>/dev/null > /review5-disk/review5-size.txt
