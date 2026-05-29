@@ -1,1 +1,11 @@
 
+9  nmcli device status - network manager command line interface. this command to show pyhsical network card
+10  nmcli connection add con-name static type ethernet ifname eth0 ipv4.addresses '172.25.250.111/24' ipv4.gateway '172.25.25.254' ipv4.dns '172.25.250.254' ipv4.method manual - method manual set that do not give dhcp ip
+11  nmcli connection up static - apply new setting that we set
+12  hostnamectl hostname server-review4.lab4.example.com - changes system computer name
+13  hostname
+14  vim /etc/hosts
+15  ping -c2 client-review4 - ping only to packet
+16  nmcli connection modify static +ipv4.addresses '172.25.250.211/24' - add another address. kalau takda +, ipv4 yang sebelum ni dia tukar terus
+17  nmcli connection up static 
+18  nmcli connection up "System eth0" - suruh system guna default setting. ip yang kita setup tu tak hilang, cuma dia sleep je
