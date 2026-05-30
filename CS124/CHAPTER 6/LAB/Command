@@ -1,6 +1,6 @@
 History
 
-   55  vim /etc/login.defs
+   55  vim /etc/login.defs - macam adjust policy
    56  groupadd -g 35000 consultants
    57  vim /sudoers.d/consultants
    58  vim /etc/sudoers.d/consultants
@@ -16,7 +16,7 @@ History
    68  chage -E 2026-08-23 consultant1
    69  chage -E 2026-08-23 consultant2
    70  chage -E 2026-08-23 consultant3
-   71  chage -l consultant1
+   71  chage -l consultant1 - tengok info yang kita ubah
    72  chage -l consultant2
    73  chage -l consultant3
    74  chage -M 15 consultant2
