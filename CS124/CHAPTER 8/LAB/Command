@@ -1,6 +1,6 @@
 History
 
-   25  pkill -SIGSTOP process101
+   25  pkill -SIGSTOP process101 - specific signal being sent to the process to immediately halt the execution of the process
    26  jobs
    27  pkill -SIGCONT process101
    28  top
@@ -16,7 +16,7 @@ History
    18  grep "model name" /prod/cpuinfo | wc -l
    19  grep "model name" /proc/cpuinfo | wc -l
    20  cd /home/student/bin
-   21  process101 &
+   21  process101 & - Starts the job immediately in the background, leaving your terminal free
    22  ls -l /home/student/.config/procps/toprc
    23  cp process101 process102
    24  vim process102
@@ -26,5 +26,6 @@ History
    28  vim process103
    29  process103 &
    30  jobs
-   31  su -
+   31  su - = masuk root
+   32 su - saiful - change user
 
