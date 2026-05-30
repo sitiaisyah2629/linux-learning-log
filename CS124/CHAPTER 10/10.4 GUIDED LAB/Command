@@ -4,8 +4,8 @@ History
    20  ssh operator1@servera hostname
    21  ssh -v operator1@servera hostname
    22  ssh-copy-id operator1@servera
-   23  ssh-keygen -f .ssh/key2
-   24  ssh-copy-id -i .ssh/key2.pub operator1@servera
+   23  ssh-keygen -f .ssh/key2 - private key (lock kita ja tengok)
+   24  ssh-copy-id -i .ssh/key2.pub operator1@servera -/key2 public (manga semua boleh tengok)
    25  ssh -i .ssh/key2.pub operator1@servera hostname
    26  ssh -i .ssh/key2 operator1@servera hostname
    27  eval $(ssh-agent)
