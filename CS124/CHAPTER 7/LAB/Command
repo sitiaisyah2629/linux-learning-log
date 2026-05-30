@@ -3,7 +3,7 @@ History
     9  mkdir /home/techdocs
    10  chown :techdocs /home/techdocs - change ownership group
    11  su - tech1
-   12  chmod 2770 /home/techdocs
+   12  chmod 2770 /home/techdocs - will automatically inherit the group ownership of the parent directory (techdocs)
    13  ls -l  /home/techdocs
    14  ls -ld  /home/techdocs
    15  su - tech1
