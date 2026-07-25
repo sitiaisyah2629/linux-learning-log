@@ -1,0 +1,22 @@
+   16  ssh student@servera hostname
+   17  ssh student@serverb hostname
+   18  for HOST in servera serverb; do ssh student@${HOST} hostname; done
+   19  mkdir ~/bin
+   20  echo $PATH
+   21  vim ~/vim/printhostname.sh
+   22  vim ~/bin/printhostname.sh
+   23  printhostname.sh
+   24  sudo printhostname.sh
+   25  printhostname.sh
+   26  sudo printhostname.sh
+   27  chmod +x ~/bin/printhostname.sh
+   28  prinhostname.sh
+   29  printhostname.sh
+   30  ssh student@serverb hostname
+   31  for HOST in servera serverb; do ssh student@${HOST} hostname; done
+   32  echo $PATH
+   33  vim ~/bin/printhostname.sh
+   34  printhostname.sh
+   35  echo $
+   36  echo $?
+   37  history
