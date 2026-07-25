@@ -1,0 +1,33 @@
+student@workstation ~]$ ssh student@servera hostname
+Warning: Permanently added 'servera' (ED25519) to the list of known hosts.
+servera.lab.example.com
+[student@workstation ~]$ ssh student@serverb hostname
+Warning: Permanently added 'serverb' (ED25519) to the list of known hosts.
+serverb.lab.example.com
+[student@workstation ~]$ for HOST in servera serverb
+> do
+> ssh student@${HOST} hostname
+> done
+servera.lab.example.com
+serverb.lab.example.com
+[student@workstation ~]$ 
+[student@workstation ~]$ mkdir ~/bin
+[student@workstation ~]$ echo $PATH
+/home/student/.local/bin:/home/student/bin:/sbin:/bin:/usr/sbin:/usr/bin:/usr/local/sbin:/usr/local/bin:/home/student/.venv/labs/bin
+[student@workstation ~]$ 
+[student@workstation ~]$ vim ~/bin/printhostname.sh
+---------------------------------------------------------
+#!/usr/bin/bash
+#Execute for loop to print server hostname.
+for HOST in servera serverb
+do      
+        ssh student@${HOST} hostname
+done    
+exit 0
+-----------------------------------------------------------
+[student@workstation ~]$ printhostname.sh
+servera.lab.example.com
+serverb.lab.example.com
+[student@workstation ~]$ echo $?
+0
+[student@workstation ~]$ 
