@@ -2,3 +2,7 @@ which bash - it shows pathway for bash
 which java - it shows pathway for java. if its show command not found, then its not notice the stuff that you install
 echo $PATH - it list all the directory in a line
 sudo -i = automatically moves you to a root
+mkdir -p /home/student = use -p for parents. it create file without an error. if file doesnt exist, it will create.
+if the file is exists, its do nothing.
+hostname = only local name (my-server)
+hostname -f = with fqdn fullt qualified domain name (//company.com)
