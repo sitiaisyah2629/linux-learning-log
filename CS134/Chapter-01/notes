@@ -50,5 +50,5 @@ only use single quotes with grep if search pattern includes spaces or special sh
 -r = Search for data that matches the regular expression recursively in a group of files or directories.
 -A <NUMBER> = Display NUMBER of lines after the regular expression match.
 -B <NUMBER> = Display NUMBER of lines before the regular expression match.
--e = If multiple -e options are used, then multiple regular expressions can be supplied and are used with a logical OR.
+-e = If multiple -e options are used, then multiple regular expressions can be supplied and are used with a logical OR. cari this or this or this.
 -E = Use extended regular expression syntax instead of basic regular expression syntax when parsing the provided regular expression.
