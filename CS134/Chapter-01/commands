@@ -1,3 +1,4 @@
 which bash - it shows pathway for bash
 which java - it shows pathway for java. if its show command not found, then its not notice the stuff that you install
 echo $PATH - it list all the directory in a line
+sudo -i = automatically moves you to a root
