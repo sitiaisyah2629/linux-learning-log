@@ -1,7 +1,13 @@
 Schedule Deferred User Tasks
+at jobs run silently in the background
+atd = at deamon
+sshd = ssh daemon
+httpd = http daemon
+daemon (pronounced "dee-mon") is a background process that runs continuously and 
+silently without any direct user interaction.
 -------example at timespec----------------
 at (TIMESPEC) 
-now +5min 
+at now +5min 
 teatime tomorrow (teatime is 16:00)
 noon +4 days
 5pm august 3 2021
@@ -11,3 +17,28 @@ atq = used to list delayed user jobs queued up to run later via the at command.
 -----------------------------------------
 Remove Jobs from Schedule
 atrm (JOBNUMBER)
+----------------------------example using at-------------------------------
+echo "date >> /home/student/myjob.txt" | at now +2min
+atq = watch the queue
+watch atq = to watch queue in real time
+The command updates the output of the atq command every two seconds.
+After the atd daemon removes the deferred job from the queue, press Ctrl+c to exit.
+at -q g teatime
+-q = is the queue flag
+teatime = exactly at 16:00
+at -q b 16:05
+a = standard queue
+b = batch jobs
+A batch job is a task scheduled to run in the background only when the computer isn't busy.
+By default, a batch job will only start when the system load average drops below 1.5.
+c-z = have lower cpu priority
+----------------------------example using at-------------------------------
+---------------Describe Recurring User Jobs----------------------
+Recurring jobs are scheduled to run repeatedly
+The crond daemon reads multiple configuration files: one per user, and a set of system-wide files. 
+-----------------Example crontab Command----------------
+crontab -l	= List the jobs for the current user.
+crontab -r	= Remove all jobs for the current user.
+crontab -e	= Edit jobs for the current user.
+crontab filename	= Remove all jobs, and replace them with jobs that are read from filename. 
+This command uses stdin input when no file is specified.
