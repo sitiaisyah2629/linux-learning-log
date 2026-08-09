@@ -1,0 +1,13 @@
+Schedule Deferred User Tasks
+-------example at timespec----------------
+at (TIMESPEC) 
+now +5min 
+teatime tomorrow (teatime is 16:00)
+noon +4 days
+5pm august 3 2021
+----------example at timespec------------
+Inspect and Manage Defferred User Jobs
+atq = used to list delayed user jobs queued up to run later via the at command.
+-----------------------------------------
+Remove Jobs from Schedule
+atrm (JOBNUMBER)
