@@ -36,9 +36,66 @@ c-z = have lower cpu priority
 ---------------Describe Recurring User Jobs----------------------
 Recurring jobs are scheduled to run repeatedly
 The crond daemon reads multiple configuration files: one per user, and a set of system-wide files. 
+The crontab command is never used to manage system jobs.
+Using the crontab commands as the root user is not recommended due to the ability to exploit personal jobs that are configured to run as root. 
 -----------------Example crontab Command----------------
 crontab -l	= List the jobs for the current user.
 crontab -r	= Remove all jobs for the current user.
 crontab -e	= Edit jobs for the current user.
 crontab filename	= Remove all jobs, and replace them with jobs that are read from filename. 
 This command uses stdin input when no file is specified.
+crontab -u = privileged user manage jobs for another user
+-----------------------------------------------------------
+Valid entries when writing recurring jobs:
+a) Empty lines for ease of reading
+b) Comments on lines that start with the number sign (#)
+c) Environment variables with a NAME=value format, which affects all lines after the line where they are declared.
+
+The fields in the crontab file appear in the following order:
+1) Minutes
+2) Hours
+3) Day of month
+4) Month
+5) Day of week
+6) Command
+
+example: run a command on the 11th day of every month, and every Friday at 12:15 (24-hour format) 
+15 12 11 * Fri command
+1. A number to specify the number of minutes or hours, a date, or a day of the week. 
+2. For days of the week, 0 equals Sunday, 1 equals Monday, 2 equals Tuesday, and so on. 7 also equals Sunday.
+3. Use x-y for a range, which includes the x and y values.
+4. Use x,y for lists. Lists might include ranges as well, for example, 5,10-13,17 in the Minutes column, for a job 
+to run at 5, 10, 11, 12, 13, and 17 minutes past the hour.
+5. The */x indicates an interval of x; for example, */7 in the Minutes column runs a job every seven minutes.
+6. 3-letter English abbreviations are used for months or days of the week, for example, Jan, Feb, and Mon, Tue.
+7. If the command contains an unescaped percentage sign (%), then that percentage sign is treated as a newline character, 
+and everything after the percentage sign passes to the command as stdin input.
+------------------------------------------------------------------------------------------------------------------------------
+-------------------------------Example-------------------------
+0 9 3 2 * /usr/local/bin/yearly_backup    (every year)
+0 = minute
+9 = 9 am (24 hours)
+3 = 3th day in month
+2 = february
+* = Every day of the week
+
+*/5 9-16 * Jul 5 echo "Chime"
+The following job sends an email that contains the Chime word to the owner of this job every five minutes between 
+and including 09:00 and 16:00, but only on each Friday in July.
+
+*/5 = every 5 minutes
+9-16 = from 0900 to 1600
+* = every weeks
+Jul = july
+5 = friday
+The job starts executing at 09:00 with the last execution at 16:55
+
+58 23 * * 1-5 /usr/local/bin/daily_report
+58 = minutes
+23 = 2300
+* = every months
+* = every weeks 
+1-5 = monday-friday
+(only monday-friday yearly)
+
+0 9 * * 1-5 mutt -s "Checking in" developer@example.com % Hi there, just checking in.
