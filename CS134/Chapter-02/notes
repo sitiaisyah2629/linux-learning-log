@@ -99,3 +99,63 @@ The job starts executing at 09:00 with the last execution at 16:55
 (only monday-friday yearly)
 
 0 9 * * 1-5 mutt -s "Checking in" developer@example.com % Hi there, just checking in.
+-----------------------------------------------------------------------------------------
+--------------------------------------Recurring System Jobs-----------------------------------
+1. System administrators often need to run recurring jobs. 
+2. It is best to run these jobs from system accounts rather than from user accounts. 
+3. Schedule these jobs with system-wide crontab files instead of with the crontab command. 
+4. Job entries in the system-wide crontab files are similar to the users' crontab entries. 
+5. The system-wide crontab files have an extra field before the command field to specify the user that runs the command.
+6. The /etc/crontab file and other files in the /etc/cron.d/ directory define the recurring system jobs. 
+7. Always create custom crontab files in the /etc/cron.d/ directory to schedule recurring system jobs. 
+8. Place the custom crontab file in the /etc/cron.d directory to prevent a package update from overwriting the /etc/crontab file.
+9. Packages that require recurring system jobs place their crontab files in the /etc/cron.d/ directory with the job entries. 
+10. Administrators also use this location to group related jobs into a single file.
+11. The crontab system also includes repositories for scripts to run every hour, day, week, and month. 
+12. These repositories are placed in the /etc/cron.hourly/, /etc/cron.daily/, /etc/cron.weekly/, and /etc/cron.monthly/ directories.
+13. These directories contain executable shell scripts, not crontab files.
+
+SHELL=/bin/bash
+PATH=/sbin:/bin:/usr/sbin:/usr/bin
+MAILTO=root
+
+# For details see man 4 crontabs
+
+# Example of job definition:
+# .---------------- minute (0 - 59)
+# |  .------------- hour (0 - 23)
+# |  |  .---------- day of month (1 - 31)
+# |  |  |  .------- month (1 - 12) OR jan,feb,mar,apr ...
+# |  |  |  |  .---- day of week (0 - 6) (Sunday=0 or 7) OR sun,mon,tue,wed,thu,fri,sat
+# |  |  |  |  |
+# *  *  *  *  * user-name  command to be executed
+--------------------------------------Recurring System Jobs-----------------------------------
+-------------------------Run Periodic Commands with Anacron------------------------------
+Anacron ensures that periodic jobs (daily, weekly, monthly) always run, 
+even if the system was powered off or asleep when the job was originally scheduled.
+The /etc/anacrontab file also contains environment variable declarations with the NAME=value syntax. 
+The START_HOURS_RANGE variable specifies the time interval for the jobs to run. Jobs do not start outside this range. 
+When a job does not run within this time interval on a particular day, then the job must wait until the next day for execution.
+------------------------------------------
+Main Configuration File: /etc/anacrontab
+Timestamp Directory: /var/spool/anacron/ (tracks when a job last ran)
+Execution Limit: Constrained by the START_HOURS_RANGE variable.
+-----------------------------------------
+The four required fields for an anacron job entry are:Period in days: 
+The frequency of the execution (e.g., 1, 7, @daily).
+Delay in minutes: The time the system waits before starting the job.
+Job identifier: A unique name used for system logging.
+Command: The actual script or command that will execute.
+------------------------------------------
+Systemd Timer
+The systemd timer unit activates another unit of a different type (such as a service), whose unit name matches the timer unit name. The timer unit allows timer-based activation of other units. 
+The systemd timer unit logs timer events in system journals for easier debugging.
+------------------------------------------
+Sample Timer Unit
+The sysstat package provides the systemd timer unit, called the sysstat-collect.timer service, to collect system statistics every 10 minutes. 
+The following output shows the contents of the /usr/lib/systemd/system/sysstat-collect.timer configuration file.
+-------------------------------------------
+After you change the timer unit configuration file, use the systemctl daemon-reload command to ensure that the systemd timer unit loads the changes.
+[root@host ~]# systemctl daemon-reload
+After reloading the systemd daemon configuration, use the systemctl command to activate the timer unit.
+[root@host ~]# systemctl enable --now <unitname>.timer
