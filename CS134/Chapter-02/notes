@@ -159,3 +159,10 @@ After you change the timer unit configuration file, use the systemctl daemon-rel
 [root@host ~]# systemctl daemon-reload
 After reloading the systemd daemon configuration, use the systemctl command to activate the timer unit.
 [root@host ~]# systemctl enable --now <unitname>.timer
+-------------------------------example-------------------------------
+USERCOUNT=$(w -h | wc -l)
+USERCOUNT=: This part creates a variable called USERCOUNT and assigns the output of the command inside the parentheses to it.
+w: This is a Linux command that shows a list of users currently logged into the computer and what they are doing.
+-h: This option tells the w command to hide the header line (the top line with column titles), leaving only the lines with user data.
+| (pipe): This symbol sends the output text from the first command directly into the next command.
+wc -l: This command counts the number of lines (-l) in the text it receives. Since each logged-in user takes up one line in the w -h output, this gives the total count of active users.
