@@ -1,1 +1,52 @@
+Options of the tar Utility
+One of the following tar command actions is required to perform a tar operation:
+-c or --create : Create an archive file.
+-t or --list : List the contents of an archive.
+-x or --extract : Extract an archive.
+
+The following tar command general options are often included:
+-v or --verbose : Show the files that are being archived or extracted during the tar operation.
+-f or --file : Follow this option with the archive file name to create or open.
+-p or --preserve-permissions : Preserve the original file permissions when extracting.
+--xattrs : Enable extended attribute support, and store extended file attributes.
+--selinux : Enable SELinux context support, and store SELinux file contexts.
+
+The following tar command compression options are used to select an algorithm:
+-a or --auto-compress : Use the archive's suffix to determine the algorithm to use.
+-z or --gzip : Use the gzip compression algorithm, which results in a .tar.gz suffix.
+-j or --bzip2 : Use the bzip2 compression algorithm, which results in a .tar.bz2 suffix.
+-J or --xz : Use the xz compression algorithm, which results in a .tar.xz suffix.
+
+-----------------------example------------------------------
+tar -cf mybackup.tar myapp1.log myapp2.log myapp3.log = creates the mybackup.tar archive to contain the myapp1.log, myapp2.log, and myapp2.log files
+ls mybackup.tar 
++ A user must have read permissions on the target files that are being archived. For example, creating an archive in the /etc directory requires root privileges, because only privileged users can read all /etc files. 
+tar -cf /root/etc-backup.tar /etc = root user creates the /root/etc-backup.tar archive of the /etc directory.
+tar -tf /root/etc.tar = t - list achieve content that are specified with the f option
+tar -xpf /home/user/myscripts.tar = 
+tar -czf /root/etcbackup.tar.gz /etc
+tar -cjf /root/logbackup.tar.bz2 /var/log
+tar -cJf /root/sshconfig.tar.xz /etc/ssh
+tar -tf /root/etcbackup.tar.gz
+tar -xzf /root/etcbackup.tar.xz
+tar -tf /root/logbackup.tar
+gzip -l file.tar.gz
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
