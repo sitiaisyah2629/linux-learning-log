@@ -13,3 +13,26 @@ journalctl --since today = timestamp. yesterday, today, and tomorrow
 journalctl --since "2022-03-11 20:30" --until "2022-03-14 10:00"
 journalctl -o verbose =  verbose output is useful to reduce the output of complex searches for certain events in the journal.
 journalctl _SYSTEMD_UNIT=sshd.service _PID=2110 = journalctl command shows all related journal entries to the sshd.service systemd unit from a process with PID 2110
+---------------------------------------------
+
+-----------------Maintain Accurate Time-----------------
+timedatectl = set current time 
+timedatectl list-timezones = list timezone 
+timedatectl set-timezone America/Phoenix = set timezone
+timedatectl set-time 9:00:00
+timedatectl set-ntp false = The timedatectl command set-ntp option enables or disables NTP synchronization for automatic time adjustment. option requires true or false
+--------------------------------------------------------
+
+
+-----------Configure and Monitor the chronyd Service--------
+The chronyd service tracks the usually inaccurate local Real-Time Clock (RTC) by synchronizing it to the configured NTP servers. 
+If no network connectivity is available, then the chronyd service calculates the RTC clock drift, and records it in the file that the driftfile value specifies in the /etc/chrony.conf configuration file.
+systemctl restart chronyd = Restart the service after pointing the chronyd service
+chronyc sources -v = For more verbose output with additional explanations about the output, use the chronyc sources -v command.
+
+
+
+
+
+
+
