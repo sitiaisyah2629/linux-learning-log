@@ -1,1 +1,15 @@
 
+Review System Journal Entries
+journalctl - To retrieve log messages from the journal
+-----------------example------------------
+journalctl
+journalctl -n 5 = show 5 last log entries
+journalctl -f = display last 10 lines and continues output journal when the journal appends.
+filter the output of the journal by the priority of the journal entries. 
+journalctl command processes the debug, info, notice, warning, err, crit, alert, and emerg priority levels, in ascending priority order.
+journalctl -p err = ist journal entries with the err priority or higher
+journalctl -u sshd.service =  for a specified systemd unit by using the journalctl command -u option and the unit name
+journalctl --since today = timestamp. yesterday, today, and tomorrow 
+journalctl --since "2022-03-11 20:30" --until "2022-03-14 10:00"
+journalctl -o verbose =  verbose output is useful to reduce the output of complex searches for certain events in the journal.
+journalctl _SYSTEMD_UNIT=sshd.service _PID=2110 = journalctl command shows all related journal entries to the sshd.service systemd unit from a process with PID 2110
