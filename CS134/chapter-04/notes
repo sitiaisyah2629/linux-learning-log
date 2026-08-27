@@ -21,6 +21,7 @@ The following tar command compression options are used to select an algorithm:
 tar -cf mybackup.tar myapp1.log myapp2.log myapp3.log = creates the mybackup.tar archive to contain the myapp1.log, myapp2.log, and myapp2.log files
 ls mybackup.tar 
 + A user must have read permissions on the target files that are being archived. For example, creating an archive in the /etc directory requires root privileges, because only privileged users can read all /etc files. 
+
 tar -cf /root/etc-backup.tar /etc = root user creates the /root/etc-backup.tar archive of the /etc directory.
 tar -tf /root/etc.tar = t - list achieve content that are specified with the f option
 tar -xpf /home/user/myscripts.tar = 
@@ -53,6 +54,40 @@ sftp: Starts the secure file transfer program.
 remoteuser@remotehost: Specifies your username and the address of the remote computer.
 :: Separation character indicating that a specific file path follows.
 /home/remoteuser/remotefile: The exact folder path and name of the file you want to download.
+-----------------------------------------------------------------------------
+
+---------------Synchronize Files Between Systems Securely-----------------------
+You can use the rsync command to synchronize the contents of a local file or directory with a file or directory on a remote machine, with either machine as the source.
+You can also synchronize the contents of two local files or directories on the same machine.
+You must be the root user on the destination system to preserve file ownership. If the destination is remote, then authenticate as the root user. 
+If the destination is local, then you must run the rsync command as the root user.
+
+-r, --recursive	Synchronize the whole directory tree recursively
+-l, --links	Synchronize symbolic links
+-p, --perms	Preserve permissions
+-t, --times	Preserve time stamps
+-g, --group	Preserve group ownership
+-o, --owner	Preserve the owner of the files
+-D, --devices	Preserve device files
+-v or --verbose option provides a more detailed output
+-a or --archive option enables "archive mode"
+-A to preserve Access Control Lists (ACLs)
+-X to preserve SELinux file contexts
+
+rsync -av /var/log hosta:/tmp - sync host a to local
+rsync -av hosta:/var/log /tmp - sync host a to local
+su - = require root pw
+rsync -av /var/log /tmp
+ls /tmp
+rsync -av /var/log/ /tmp 
+In this example, the content of the /var/log/ directory is synchronized to the /tmp directory 
+instead of the log directory being created in the /tmp directory.
+
+---------------------------------------------------------------------
+
+
+
+
 
 
 
