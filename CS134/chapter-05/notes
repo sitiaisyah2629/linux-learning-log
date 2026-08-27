@@ -1,0 +1,26 @@
+cat /etc/tuned/tuned-main.conf
+dnf install tuned
+cd /usr/lib/tuned
+cat virtual-guest/tuned.conf
+tuned-adm active
+tuned-adm list
+tuned-adm profile_info network-latency
+tuned-adm active
+tuned-adm profile throughput-performance
+tuned-adm active
+tuned-adm recommend
+tuned-adm off
+tuned-adm active
+
+
+
+
+
+
+
+
+
+
+
+
+  
