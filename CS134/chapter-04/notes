@@ -31,15 +31,28 @@ tar -tf /root/etcbackup.tar.gz
 tar -xzf /root/etcbackup.tar.xz
 tar -tf /root/logbackup.tar
 gzip -l file.tar.gz
+-------------------Transfer Files Between Systems Securely--------------------
+Secure File Transfer Program (SFTP)
+The put command uploads a file to the remote system. 
+The get command downloads a file from the remote system. 
+The exit command exits the sftp session.
+work the same way with ls, cd, mkdir, rmdir, and pwd commands with remote file system
+tambah 'l' dekat dekat depan kalau nak access local host. exp: lcd, lpwd
 
-
-
-
-
-
-
-
-
+sftp remoteuser@remotehost
+sftp> help - list available commands in sftp
+sftp> pwd - print current dir on remote host
+sftp> lpwd - print current dir on local host
+sftp> mkdir hostbackup - create dir
+sftp > cd hostbackup - go to the new dir
+sftp > put /etc/hosts - upload the dir
+sftp> put -r directory - to upload whole directory recursively
+sftp> get /etc/yum.conf - to download file
+sftp remoteuser@remotehost:/home/remoteuser/remotefile 
+sftp: Starts the secure file transfer program.
+remoteuser@remotehost: Specifies your username and the address of the remote computer.
+:: Separation character indicating that a specific file path follows.
+/home/remoteuser/remotefile: The exact folder path and name of the file you want to download.
 
 
 
