@@ -1,3 +1,7 @@
+---------------------------tuning----------------
++for adjusting device settings based on various use case workloads
++the tuned daemon applies tuning adjustments both statically and dynamically by using tuning profiles that reflect particular workload requirements.
+
 cat /etc/tuned/tuned-main.conf
 dnf install tuned
 cd /usr/lib/tuned
