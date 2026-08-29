@@ -2,19 +2,31 @@
 +for adjusting device settings based on various use case workloads
 +the tuned daemon applies tuning adjustments both statically and dynamically by using tuning profiles that reflect particular workload requirements.
 
+Monitor plug-ins analyze the system and obtain information from it, so the tuning plug-ins use this information for dynamic tuning. At this moment, the tuned daemon ships with three monitor plug-ins:
+disk: Monitors the disk load based on the number of I/O operations for every disk device.
+net: Monitors the network load based on the number of transferred packets per network card.
+load: Monitors the CPU load for every CPU.
+
+Tuning plug-ins tune the individual subsystems. They use the data from the monitor plug-ins and the performance parameters from the predefined tuning profiles. Among others, the tuned daemon ships with the following tuning plug-ins:
+disk: Sets different disk parameters, for example, the disk scheduler, the spin-down timeout, or the advanced power management.
+net: Configures the interface speed and the Wake-on-LAN (WoL) functionality.
+cpu: Sets different CPU parameters, for example, the CPU governor or the latency.
+
+
+
+-----------------example---------------
 cat /etc/tuned/tuned-main.conf
-dnf install tuned
+dnf install tuned - Installs the TuneD package, this daemon dynamically optimizes system settings based on selected performance profiles.
 cd /usr/lib/tuned
-cat virtual-guest/tuned.conf
-tuned-adm active
-tuned-adm list
-tuned-adm profile_info network-latency
-tuned-adm active
-tuned-adm profile throughput-performance
-tuned-adm active
-tuned-adm recommend
-tuned-adm off
-tuned-adm active
+cat virtual-guest/tuned.conf 
+tuned-adm active - Checks and displays the currently active TuneD performance profile on your machine.
+tuned-adm list - Lists all available tuning profiles on the system (e.g., balanced, powersave, throughput-performance) so you can see your options.
+tuned-adm profile_info network-latency - Shows a detailed description and metadata about the network-latency profile, explaining what it optimizes (usually lowering network delays at the cost of higher power consumption).
+tuned-adm active - Checks the active profile again (likely verifying its state before making a change).
+tuned-adm profile throughput-performance - Switches the system's active tuning profile to throughput-performance. This optimizes the system for maximum data processing capacity (commonly used for heavy web or database servers).
+tuned-adm recommend - Asks TuneD to analyze your hardware and environment (e.g., whether it's a bare-metal server, VM, or laptop) and print the recommended profile name for your setup.
+tuned-adm off - Disables all TuneD optimizations and returns all system and kernel settings back to their default Linux startup values.
+
 
 
 
