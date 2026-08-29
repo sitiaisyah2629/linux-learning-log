@@ -41,8 +41,11 @@ tuned-adm profile throughput-performance - Switches the system's active tuning p
 tuned-adm recommend - Asks TuneD to analyze your hardware and environment (e.g., whether it's a bare-metal server, VM, or laptop) and print the recommended profile name for your setup.
 tuned-adm off - Disables all TuneD optimizations and returns all system and kernel settings back to their default Linux startup values.
 
-
-
+ps axo pid,comm,nice,cls --sort=-nice 
+The following ps command lists all processes with their process ID, process name, nice value, and scheduling class. 
+The processes are sorted in descending order by nice value. In the CLS scheduling class column, TS stands for time sharing, which is another name for the normal scheduling policies, including SCHED_NORMAL. 
+Other CLS values, such as FF for first in first out and RR for round robin, indicate real-time processes. Real-time processes are not assigned nice values, as indicated by the dash (-) in the NI column. 
+Advanced scheduling policies are taught in the
 
 
 
