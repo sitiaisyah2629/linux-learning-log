@@ -76,11 +76,21 @@ setsebool -P httpd_enable_homedirs on
 semanage boolean -l | grep httpd_enable_homedirs
 semanage boolean -l -C
 ----------------------------------------------------------
+Investigate and Resolve SELinux Issues
 
+touch /root/mypage
+mv /root/mypage /var/www/html
+systemctl start httpd
+curl http://localhost/mypage
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<html><head>
+<title>403 Forbidden</title>
+</head><body>
+<h1>Forbidden</h1>
+<p>You don't have permission to access this resource.</p>
+</body></html>
 
-
-
-
-
-
-
+tail /var/log/audit/audit.log
+tail /var/log/messages
+sealert -l 95f41f98-6b56-45bc-95da-ce67ec9a9ab7
+ausearch -m AVC -ts recent
