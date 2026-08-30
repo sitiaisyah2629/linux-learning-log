@@ -31,14 +31,37 @@ setenforce 0
 getenforce
 setenforce Enforcing
 getenforce
+touch /tmp/file1 /tmp/file2
+ls -Z /tmp/file*
+ls -Zd /var/www/html/
+ls -Z /var/www/html/index.html
+mv /tmp/file1 /var/www/html/
+cp /tmp/file2 /var/www/html/
+ls -Z /var/www/html/file*
+mkdir /virtual
+ls -Zd /virtual
+chcon -t httpd_sys_content_t /virtual
+ls -Zd /virtual
+restorecon -v /virtual
+ls -Zd /virtual
+ls -Z /var/www/html/file*
+semanage fcontext -l
+restorecon -Rv /var/www/
+mkdir /virtual
+touch /virtual/index.html
+touch /virtual/index.html
+ls -Z /virtual/
+semanage fcontext -a -t httpd_sys_content_t '/virtual(/.*)?'
+restorecon -RFvv /virtual
+ls -Zd /virtual/
+ls -Z /virtual/
+semanage fcontext -l -C
 
-
-
-
-
-
-
-
+--------------------------------------------------------
+Basic File Context Operations
+-a, --add	Add a record of the specified object type.
+-d, --delete	Delete a record of the specified object type.
+-l, --list	List records of the specified object type.
 
 
 
