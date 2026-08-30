@@ -1,0 +1,25 @@
+SELinux (Security-Enhanced Linux)
+acts like an extra, hyper-strict security guard built directly into your Linux server's kernel. 
+Even if a hacker or a broken application somehow gains root (admin) privileges, SELinux prevents them from damaging your system or accessing unauthorized files.
+
+Standard Permissions vs. SELinux
+Traditional Linux Permissions (DAC): You control access using Owner, Group, and Others (rwx). 
+If a hacker compromises an application running as root, they instantly gain access to the entire system.
+SELinux (MAC - Mandatory Access Control): Every single file, directory, process, and port is given a specific security label (or context). 
+A process can only access a file if its security label explicitly matches the file's label. Even if a process runs as root, SELinux will block it if the labels don't match.
+
+The Three Operational Modes:
+Enforcing: The default and safest state. Rules are strictly applied, and any unauthorized access is blocked and logged.
+Permissive: The system does not block anything, but it logs violations. This mode is used for troubleshooting or testing a new app.
+Disabled: Completely turned off. Security features are inactive.
+
+Essential commands to know: 
+Check the current state: getenforce or sestatus
+Switch temporarily to Permissive mode: sudo setenforce 0
+Switch temporarily back to Enforcing mode: sudo setenforce 1
+View the security labels on files: ls -Z
+
+  
+
+
+  
