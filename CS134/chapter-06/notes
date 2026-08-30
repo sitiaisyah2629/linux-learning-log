@@ -19,7 +19,27 @@ Switch temporarily to Permissive mode: sudo setenforce 0
 Switch temporarily back to Enforcing mode: sudo setenforce 1
 View the security labels on files: ls -Z
 
-  
+--------------------example commands--------------------
+To configure SELinux persistently, use the /etc/selinux/config file
+
+ps axZ
+systemctl start httpd
+ps -ZC httpd
+ls -Z /var/www
+getenforce
+setenforce 0
+getenforce
+setenforce Enforcing
+getenforce
 
 
-  
+
+
+
+
+
+
+
+
+
+
