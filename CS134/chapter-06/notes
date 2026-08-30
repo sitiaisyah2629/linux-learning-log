@@ -62,6 +62,24 @@ Basic File Context Operations
 -a, --add	Add a record of the specified object type.
 -d, --delete	Delete a record of the specified object type.
 -l, --list	List records of the specified object type.
+--------------------------------------------------------
+Adjust SELinux Policy with Booleans
+
+getsebool -a
+getsebool httpd_enable_homedirs
+semanage boolean -l | grep httpd_enable_homedirs
+setsebool httpd_enable_homedirs on
+semanage boolean -l | grep httpd_enable_homedirs
+getsebool httpd_enable_homedirs
+semanage boolean -l -C
+setsebool -P httpd_enable_homedirs on
+semanage boolean -l | grep httpd_enable_homedirs
+semanage boolean -l -C
+----------------------------------------------------------
+
+
+
+
 
 
 
