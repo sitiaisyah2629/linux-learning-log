@@ -1,1 +1,198 @@
+Physical devices
+
+Physical Volumes (PVs)
+Volume Groups (VGs)
+Logical Volumes (LVs)
+
+------------------Prepare Physical Devices-----------------
+[root@host ~]# parted /dev/vdb mklabel gpt mkpart primary 1MiB 769MiB
+...output omitted...
+[root@host ~]# parted /dev/vdb mkpart primary 770MiB 1026MiB
+[root@host ~]# parted /dev/vdb set 1 lvm on
+[root@host ~]# parted /dev/vdb set 2 lvm on
+[root@host ~]# udevadm settle
+
+----------------------Create Physical Volumes------------------------
+[root@host ~]# pvcreate /dev/vdb1 /dev/vdb2
+  Physical volume "/dev/vdb1" successfully created.
+  Physical volume "/dev/vdb2" successfully created.
+  Creating devices file /etc/lvm/devices/system.devices
+
+
+------------------Create a Volume Group------------------------
+[root@host ~]# vgcreate vg01 /dev/vdb1 /dev/vdb2
+  Volume group "vg01" successfully created
+
+
+------------------Create a Logical Volume--------------------
+[root@host ~]# lvcreate -n lv01 -L 300M vg01
+  Logical volume "lv01" created.
+----------------------------------------------------------------
+Create a Logical Volume with Deduplication and Compression
+
+VDO pool LV
+VDO LV
+
+[root@host ~]# dnf install vdo kmod-kvdo
+
+[root@host ~]# lvcreate --type vdo --name vdo-lv01 --size 5G vg01
+    Logical blocks defaulted to 523108 blocks.
+    The VDO volume can address 2 GB in 1 data slab.
+    It can grow to address at most 16 TB of physical storage in 8192 slabs.
+    If a larger maximum size might be needed, use bigger slabs.
+  Logical volume "vdo-lv01" created.
+--------------Create a File System on the Logical Volume--------------------
+[root@host ~]# mkfs -t xfs /dev/vg01/vdo-lv01
+...output omitted...
+[root@host ~]# mkdir /mnt/data
+add entry in /etc/fstab
+/dev/vg01/vdo-lv01 /mnt/data xfs defaults 0 0
+[root@host ~]# mount /mnt/data/
+-------------------------------------------------------------------------------
+Display Physical Volume Information
+[root@host ~]# pvdisplay /dev/vdb1
+  --- Physical volume ---
+  PV Name               /dev/vdb1                         1
+  VG Name               vg01                              2
+  PV Size               731.98 MiB / not usable 3.98 MiB  3
+  Allocatable           yes
+  PE Size               4.00 MiB                          4
+  Total PE              182
+  Free PE               107                               5
+  Allocated PE          75
+  PV UUID               zP0gD9-NxTV-Qtoi-yfQD-TGpL-0Yj0-wExh2N
+
+1
+PV Name shows the device name.
+2
+VG Name shows the volume group where the PV is allocated.
+3
+PV Size shows the physical size of the PV, including unusable space.
+4
+PE Size shows the physical extent size.
+5
+Free PE shows the PE size available in the VG to create new LVs or extend existing LVs.
+---------------------------------------------------------------------------------------
+Display Volume Group Information
+
+[root@host ~]# vgdisplay vg01
+  --- Volume group ---
+  VG Name               vg01                1
+  System ID
+  Format                lvm2
+  Metadata Areas        2
+  Metadata Sequence No  2
+  VG Access             read/write
+  VG Status             resizable
+  MAX LV                0
+  Cur LV                1
+  Open LV               1
+  Max PV                0
+  Cur PV                2
+  Act PV                2
+  VG Size               1012.00 MiB         2
+  PE Size               4.00 MiB
+  Total PE              253                 3
+  Alloc PE / Size       75 / 300.00 MiB
+  Free  PE / Size       178 / 712.00 MiB    4
+  VG UUID               jK5M1M-Yvlk-kxU2-bxmS-dNjQ-Bs3L-DRlJNc
+
+1
+VG Name shows the name of the volume group.
+2
+VG Size displays the total size of the storage pool that is available for LV allocation.
+3
+Total PE shows the total size of PE units.
+4
+Free PE / Size shows the available space in the VG to create or extend LVs.
+-------------------------------------------------------
+Display Logical Volume Information
+[root@host ~]# lvdisplay /dev/vg01/lv01
+  --- Logical volume ---
+  LV Path                /dev/vg01/lv01         1
+  LV Name                lv01
+  VG Name                vg01                   2
+  LV UUID                FVmNel-u25R-dt3p-C5L6-VP2w-QRNP-scqrbq
+  LV Write Access        read/write
+  LV Creation host, time servera.lab.example.com, 2022-04-07 10:45:34 -0400
+  LV Status              available
+  # open                 1
+  LV Size                300.00 MiB             3
+  Current LE             75                     4
+  Segments               1
+  Allocation             inherit
+  Read ahead sectors     auto
+  - currently set to     8192
+  Block device           253:0
+
+
+1
+LV Path shows the device name of the LV.
+2
+VG Name shows the VG that is used for creating this LV.
+3
+LV Size shows the total size of the LV. Use the file-system tools to determine the free and used space for the LV.
+4
+Current LE shows the number of logical extents that this LV uses.
+-----------------------------------------------------------------
+Extend a Volume Group Size
+[root@host ~]# parted /dev/vdb mkpart primary 1072MiB 1648MiB
+...output omitted...
+[root@host ~]# parted /dev/vdb set 3 lvm on
+...output omitted...
+[root@host ~]# udevadm settle
+[root@host ~]# pvcreate /dev/vdb3
+  Physical volume "/dev/vdb3" successfully created.
+
+[root@host ~]# vgextend vg01 /dev/vdb3
+  Volume group "vg01" successfully extended
+----------------------------------------------------------------
+Extend a Logical Volume Size
+[root@host ~]# lvextend -L +500M /dev/vg01/lv01
+  Size of logical volume vg01/lv01 changed from 300.00 MiB (75 extents) to 800.00 MiB (200 extents).
+  Logical volume vg01/lv01 successfully resized.
+--------------------------------------------------------------
+Extend an XFS File System to the Logical Volume Size
+[root@host ~]# xfs_growfs /mnt/data/
+...output omitted...
+data blocks changed from 76800 to 204800
+---------------------------------------------------------------
+Extend an EXT4 File System to the Logical Volume Size
+[root@host ~]# resize2fs /dev/vg01/lv01
+resize2fs 1.46.5 (30-Dec-2021)
+Resizing the filesystem on /dev/vg01/lv01 to 256000 (4k) blocks.
+The filesystem on /dev/vg01/lv01 is now 256000 (4k) blocks long.
+-------------------------------------------------------------
+Extend Swap Space Logical Volumes
+[root@host ~]# swapoff -v /dev/vg01/swap
+swapoff /dev/vg01/swap
+[root@host ~]# lvextend -L +300M /dev/vg01/swap
+  Size of logical volume vg01/swap changed from 500.00 MiB (125 extents) to 800.00 MiB (200 extents).
+  Logical volume vg01/swap successfully resized.
+[root@host ~]# mkswap /dev/vg01/swap
+mkswap: /dev/vg01/swap: warning: wiping old swap signature.
+Setting up swapspace version 1, size = 800 MiB (838856704 bytes)
+no label, UUID=25b4d602-6180-4b1c-974e-7f40634ad660
+[root@host ~]# swapon /dev/vg01/swap
+[root@host ~]# pvmove -A y /dev/vdb3
+[root@host ~]# vgreduce vg01 /dev/vdb3
+  Removed "/dev/vdb3" from volume group "vg01"
+-----------------------------------------------------------
+Prepare the File System
+[root@host ~]# umount /mnt/data
+----------------------------------------------------------
+Remove the Logical Volume
+[root@host ~]# lvremove /dev/vg01/lv01
+Do you really want to remove active logical volume vg01/lv01? [y/n]: y
+  Logical volume "lv01" successfully removed.
+---------------------------------------------------------
+Remove the Volume Group
+[root@host ~]# vgremove vg01
+  Volume group "vg01" successfully removed
+-------------------------------------------------------
+Remove the Physical Volumes
+[root@host ~]# pvremove /dev/vdb1 /dev/vdb2
+  Labels on physical volume "/dev/vdb1" successfully wiped.
+  Labels on physical volume "/dev/vdb2" successfully wiped.
+
 
