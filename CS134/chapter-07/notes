@@ -1,1 +1,87 @@
+Partition Disks
+this division provides many benefits:
+-Limit available space to applications or users.
+-Separate operating system and program files from user files.
+-Create a separate area for memory swapping.
+-Limit disk space use to improve the performance of diagnostic tools and backup imaging.
+
+MBR Partition Scheme (Master Boot Record)
+-This scheme supports a maximum of four primary partitions.
+-On Linux systems, with extended and logical partitions, you can create up to 15 partitions.
+-With a 32-bit partition size, disks that are partitioned with MBR can have a size of up to 2 TiB.
+-The 2 TiB disk and partition size limit is now a common and restrictive limitation. 
+-Consequently, the legacy MBR scheme is superseded by the GUID Partition Table (GPT) partitioning scheme.
+
+GPT Partition Scheme
+For systems that run Unified Extensible Firmware Interface (UEFI) firmware, GPT is the standard for disk partitioning, and addresses the limitations of the MBR scheme. 
+A GPT provides a maximum of 128 partitions. 
+The GPT scheme allocates 64 bits for logical block addresses, to support partitions and disks of up to eight zebibytes (ZiB) or eight billion tebibytes (TiB).
+
+Manage Partitions
+----------------------------------
+parted /dev/vda print
+parted /dev/vda
+print
+quit
+
+parted /dev/vda unit s print
+-----------------------------------
+Write the Partition Table on a New Disk
+[root@host ~]# parted /dev/vdb mklabel msdos
+[root@host ~]# parted /dev/vdb mklabel gpt
+-----------------------------------
+Create MBR Partitions
+
+parted /dev/vdb
+mkpart
+xfs
+
+parted /dev/vdb help mkpart
+2048s
+1000MB
+quit
+
+udevadm settle
+parted /dev/vdb mkpart primary xfs 2048s 1000MB
+----------------------------------
+Create GPT Partitions
+parted /dev/vdb
+mkpart
+userdata
+xfs
+2048s
+1000MB
+quit
+
+udevadm settle
+parted /dev/vdb mkpart userdata xfs 2048s 1000MB
+-----------------------------------------
+Delete Partitions
+parted /dev/vdb
+print
+rm 1
+quit
+parted /dev/vdb rm 1
+----------------------------------------
+Create File Systems
+mkfs.xfs /dev/vdb1
+----------------------------------------
+Manually Mount File Systems
+mount /dev/vdb1 /mnt
+mount | grep vdb1
+-----------------------------------------
+Persistently Mount File Systems
+cat /etc/fstab
+systemctl daemon-reload
+lsblk --fs
+--------------------------------------
+
+
+
+
+
+
+
+
+
 
