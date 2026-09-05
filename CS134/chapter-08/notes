@@ -194,5 +194,76 @@ Remove the Physical Volumes
 [root@host ~]# pvremove /dev/vdb1 /dev/vdb2
   Labels on physical volume "/dev/vdb1" successfully wiped.
   Labels on physical volume "/dev/vdb2" successfully wiped.
+------------------------------------------------------
+Storage Stack
+
+Block Device
+Block devices are at the bottom of the storage stack, and present a stable, consistent device protocol that 
+enables including almost any block device transparently in a RHEL storage configuration.
+
+Multipath
+A path is a connection between a server and the underlying storage. 
+Device Mapper multipath (dm-multipath) is a RHEL native multipath tool for configuring redundant I/O paths into a single, path-aggregated logical device.
+
+Partitions
+A block device can be further divided into partitions. 
+Partitions might consume the entire block device size, or divide the block device for creating multiple partitions. 
+
+RAID
+A Redundant Array of Inexpensive Disks (RAID) is a storage virtualization technology that creates large logical volumes from multiple physical or virtual block device components. 
+Different forms of RAID volumes offer data redundancy, performance improvement, or both, by implementing mirroring or striping layouts.
+
+Logical Volume Manager
+LVM physical volumes, volume groups, and logical volumes were discussed in a previous section. 
+LVM can take almost any form of physical or virtual block devices, and can build storage as new logical storage volumes, and effectively hides the physical storage configuration from applications and other storage clients.
+
+Stratis Storage Management
+Stratis is a local storage management tool that Red Hat and the upstream Fedora community developed. 
+Stratis configures initial storage, changes a storage configuration, and uses advanced storage features.
+
+Stratis Administration Methods
+To manage file systems with the Stratis storage management solution, install the stratis-cli and stratisd packages. 
+The stratis-cli package provides the stratis command, which sends reconfiguration requests to the stratisd system daemon. 
+
+Install and Enable Stratis
+[root@host ~]# dnf install stratis-cli stratisd
+...output omitted...
+Is this ok [y/N]: y
+...output omitted...
+Complete!
+[root@host ~]# systemctl enable --now stratisd
+
+Create Stratis Pools
+[root@host ~]# stratis pool create pool1 /dev/vdb
+[root@host ~]# stratis pool list
+Name                  Total Physical   Properties            UUID
+pool1   5 GiB / 37.63 MiB / 4.96 GiB      ~Ca,~Cr   11f6f3c5-5...
+
+[root@host ~]# stratis pool add-data pool1 /dev/vdc
+[root@host ~]# stratis blockdev list pool1
+Pool Name   Device Node   Physical Size   Tier
+pool1       /dev/vdb              5 GiB   Data
+pool1       /dev/vdc              5 GiB   Data
+
+Manage Stratis File Systems
+[root@host ~]# stratis filesystem create pool1 fs1
+[root@host ~]# stratis filesystem list
+Pool Name   Name   Used      Created             Device                   UUID
+pool1       fs1    546 MiB   Apr 08 2022 04:05   /dev/stratis/pool1/fs1   c7b5719...
+
+[root@host ~]# stratis filesystem snapshot pool1 fs1 snapshot1
+
+Persistently Mount Stratis File Systems
+[root@host ~]# lsblk --output=UUID /dev/stratis/pool1/fs1
+UUID
+c7b57190-8fba-463e-8ec8-29c80703d45e
+
+UUID=c7b57190-8fba-463e-8ec8-29c80703d45e /dir1 xfs defaults,x-systemd.requires=stratisd.service 0 0
+
+
+
+
+
+
 
 
